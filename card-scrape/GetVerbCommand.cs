@@ -23,6 +23,9 @@ namespace cardscrape
 		public string[] NounsToSkip = new [] {
 			"vosotros"
 		};
+		public string[] TensesToInclude = new [] { 
+			"present"
+		};
 
 		public GetVerbCommand ()
 		{
@@ -80,7 +83,7 @@ namespace cardscrape
 
 				for (var column = 0; column < columnNames.Length; column++) {
 
-					if (columnNames [column] != "present")
+					if (!TensesToInclude.Contains(columnNames[column]))
 						continue;
 
 					for (var row = 0; row < rowNames.Length; row++) {
