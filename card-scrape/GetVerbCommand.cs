@@ -12,6 +12,7 @@ namespace cardscrape
 	{
 		public class Result {
 			public string TermConjugationIdentifier;
+			public string PossibleNounPhrase;
 			public string Term;
 			public string TermDefinition;  // use google translate?
 			public string InfinitiveForm;
@@ -19,22 +20,21 @@ namespace cardscrape
 		}
 
 		public string Verb;
+		public string[] NounsToSkip = new [] {
+			"vosotros"
+		};
 
 		public GetVerbCommand ()
 		{
 			this.IsCommand ("get-verb", "Generates notes for a Spanish verb");
 			this.HasAdditionalArguments (1, " <verb>");
-		}
-
-		public override int? OverrideAfterHandlingArgumentsBeforeRun (string[] remainingArguments)
-		{
-			Verb = remainingArguments [0];
-
-			return base.OverrideAfterHandlingArgumentsBeforeRun (remainingArguments);
+			this.SkipsCommandSummaryBeforeRunning ();
 		}
 
 		public override int Run (string[] remainingArguments)
 		{
+			Verb = remainingArguments [0];
+
 			var options = new ChromeOptions();
 			var service = ChromeDriverService.CreateDefaultService();
 			service.SuppressInitialDiagnosticInformation = true;
@@ -66,18 +66,17 @@ namespace cardscrape
 					return 1;
 				}
 
-				Console.WriteLine (term + " - " + translation);
-
 				foreach (var vtableLabel in driver.FindElementsByCssSelector ("a.vtable-label")) {
 					var vtableType = vtableLabel.Text.Trim ().ToLower().Replace(" ", "-");
 					driver.ExecuteScript("arguments[0].classList.add('vtable-label-" + vtableType + "');",vtableLabel);
 				}
 
-				//var indicativeLabel = driver.FindElementByCssSelector ("a.vtable-label:contains('Indicative')");
 				var indicativeTable = driver.FindElementByCssSelector (".vtable-label-indicative + .vtable-wrapper");
 
 				var columnNames = indicativeTable.FindElements (By.CssSelector ("tr:first-child td")).Select (e => e.Text.ToLower()).Skip (1).ToArray ();
 				var rowNames = indicativeTable.FindElements (By.CssSelector ("tr td:first-child")).Select (e => e.Text.ToLower()).Skip (1).ToArray ();
+
+				List<Result> results = new List<Result> ();
 
 				for (var column = 0; column < columnNames.Length; column++) {
 
@@ -88,17 +87,56 @@ namespace cardscrape
 
 						var selector = "tr:nth-child(" + (row + 2) + ") td:nth-child(" + (column + 2) + ")";
 						var value = indicativeTable.FindElement (By.CssSelector (selector)).Text.Trim().ToLower();
-						Console.WriteLine (String.Format ("{0}, {1}, {2}, {3}", selector, columnNames [column], rowNames [row], value));
+
+						var identifier = String.Join (",", new [] {
+							term,
+							columnNames[column],
+							rowNames[row],
+							});
+
+						var nounPhrase = rowNames [row].Split ('/').First ();
+
+						if (NounsToSkip.Contains (nounPhrase)) {
+							continue;
+						}
+
+						results.Add (new Result () {
+							TermConjugationIdentifier = identifier,
+							InfinitiveForm = term,
+							InfinitiveDefinition = translation,
+							Term = value,
+							PossibleNounPhrase = nounPhrase
+						});
+					}
+
+					foreach (var result in results) {
+
+						var termToSearch = result.Term;
+
+						if (result.PossibleNounPhrase != "nosotros") {
+							//  For some reason Google Translate says "nosotros dormimos" is "us slept" and
+							//  that "dormimos" is "we slept".  So lets not put Nosotros in.
+
+							termToSearch = result.PossibleNounPhrase + " " + result.Term;
+						}
+
+						driver.Navigate ().GoToUrl ("https://translate.google.com/#es/en/" + termToSearch);
+
+						string definition = null;
+
+						do {
+							if (definition != null) {
+								System.Threading.Thread.Sleep(200);
+							}
+
+							definition = driver.FindElementByCssSelector ("#result_box").Text.Trim ();
+						} while(definition.Contains("..."));
+
+						result.TermDefinition = definition;
 					}
 				}
-				Console.WriteLine (String.Join (" ", columnNames));
-				Console.WriteLine (String.Join (" ", rowNames));
 
-				var result = new Result ();
-				result.InfinitiveForm = term;
-				result.InfinitiveDefinition = translation;
-
-				System.Threading.Thread.Sleep (5000);
+				Console.WriteLine (Newtonsoft.Json.JsonConvert.SerializeObject (results.ToArray (), Newtonsoft.Json.Formatting.Indented));
 			}
 
 			return 0;
