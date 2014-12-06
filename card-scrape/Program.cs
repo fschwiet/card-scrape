@@ -4,9 +4,10 @@ namespace cardscrape
 {
 	class MainClass
 	{
-		public static void Main (string[] args)
+		public static int Main (string[] args)
 		{
-			Console.WriteLine ("Hello World!");
+			var commands = ManyConsole.ConsoleCommandDispatcher.FindCommandsInSameAssemblyAs(typeof(MainClass));
+			return ManyConsole.ConsoleCommandDispatcher.DispatchCommand (commands, args, Console.Out);
 		}
 	}
 }
