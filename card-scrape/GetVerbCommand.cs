@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ManyConsole;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 
@@ -9,6 +10,14 @@ namespace cardscrape
 {
 	public class GetVerbCommand : ConsoleCommand
 	{
+		public class Result {
+			public string TermConjugationIdentifier;
+			public string Term;
+			public string TermDefinition;  // use google translate?
+			public string InfinitiveForm;
+			public string InfinitiveDefinition;
+		}
+
 		public string Verb;
 
 		public GetVerbCommand ()
@@ -58,6 +67,36 @@ namespace cardscrape
 				}
 
 				Console.WriteLine (term + " - " + translation);
+
+				foreach (var vtableLabel in driver.FindElementsByCssSelector ("a.vtable-label")) {
+					var vtableType = vtableLabel.Text.Trim ().ToLower().Replace(" ", "-");
+					driver.ExecuteScript("arguments[0].classList.add('vtable-label-" + vtableType + "');",vtableLabel);
+				}
+
+				//var indicativeLabel = driver.FindElementByCssSelector ("a.vtable-label:contains('Indicative')");
+				var indicativeTable = driver.FindElementByCssSelector (".vtable-label-indicative + .vtable-wrapper");
+
+				var columnNames = indicativeTable.FindElements (By.CssSelector ("tr:first-child td")).Select (e => e.Text.ToLower()).Skip (1).ToArray ();
+				var rowNames = indicativeTable.FindElements (By.CssSelector ("tr td:first-child")).Select (e => e.Text.ToLower()).Skip (1).ToArray ();
+
+				for (var column = 0; column < columnNames.Length; column++) {
+
+					if (columnNames [column] != "present")
+						continue;
+
+					for (var row = 0; row < rowNames.Length; row++) {
+
+						var selector = "tr:nth-child(" + (row + 2) + ") td:nth-child(" + (column + 2) + ")";
+						var value = indicativeTable.FindElement (By.CssSelector (selector)).Text.Trim().ToLower();
+						Console.WriteLine (String.Format ("{0}, {1}, {2}, {3}", selector, columnNames [column], rowNames [row], value));
+					}
+				}
+				Console.WriteLine (String.Join (" ", columnNames));
+				Console.WriteLine (String.Join (" ", rowNames));
+
+				var result = new Result ();
+				result.InfinitiveForm = term;
+				result.InfinitiveDefinition = translation;
 
 				System.Threading.Thread.Sleep (5000);
 			}
