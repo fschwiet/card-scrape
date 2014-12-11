@@ -179,6 +179,8 @@ namespace cardscrape
 						csvWriter.WriteField (result.TermDefinition);
 						if (result.InfinitiveForm != null) {
 							csvWriter.WriteField (result.InfinitiveForm + " - " + result.InfinitiveDefinition);
+						} else {
+							csvWriter.WriteField ("");
 						}
 						csvWriter.NextRecord ();
 				}
