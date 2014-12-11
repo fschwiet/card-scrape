@@ -78,7 +78,7 @@ enojar
 enseñar
 entender
 equivocar
-escoger
+escoger; (from some options)
 escribir
 escuchar
 establecer
