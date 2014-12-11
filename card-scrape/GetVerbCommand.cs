@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using ManyConsole;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -19,7 +20,7 @@ namespace cardscrape
 			public string InfinitiveDefinition;
 		}
 
-		public string Verb;
+		public List<string> Verbs = new List<string>();
 		public string[] NounsToSkip = new [] {
 			"vosotros"
 		};
@@ -30,32 +31,39 @@ namespace cardscrape
 		public GetVerbCommand ()
 		{
 			this.IsCommand ("get-verb", "Generates notes for a Spanish verb");
-			this.HasAdditionalArguments (1, " <verb>");
+			this.HasAdditionalArguments (null, " <verb|filename>+ where filename is a file containing a list of verbs");
 			this.SkipsCommandSummaryBeforeRunning ();
 		}
 
 		public override int Run (string[] remainingArguments)
 		{
-			Verb = remainingArguments [0];
+			foreach (var arg in remainingArguments) {
+				if (File.Exists (arg)) {
+					Verbs.AddRange (File.ReadAllLines (arg).Where (l => l.Trim ().Length > 0));
+				} else {
+					Verbs.Add (arg);
+				}
+			}
 
 			var options = new ChromeOptions();
 			var service = ChromeDriverService.CreateDefaultService();
 			service.SuppressInitialDiagnosticInformation = true;
 
-			using(var driver = new ChromeDriver(service, options)) {
-
-				driver.Navigate ().GoToUrl ("http://www.spanishdict.com/translate/" + Verb);
+			using (var driver = new ChromeDriver(service, options))
+			foreach (var verb in Verbs) {
+			
+				driver.Navigate ().GoToUrl ("http://www.spanishdict.com/translate/" + verb);
 
 				var translationDiv = driver.FindElementsByCssSelector (".card .quickdef .lang").FirstOrDefault();
 				var conjugateLink = driver.FindElementsByCssSelector (".card a[href^='http://www.spanishdict.com/conjugate']").FirstOrDefault();
 
 				if (translationDiv == null) {
-					Console.WriteLine ("Unable to find translation of '" + Verb + "'.");
+					Console.WriteLine ("Unable to find translation of '" + verb + "'.");
 					return 1;
 				}
 
 				if (conjugateLink == null) {
-					Console.WriteLine ("Is '" + Verb + "' a verb?  Unable to find conjugation link.");
+					Console.WriteLine ("Is '" + verb + "' a verb?  Unable to find conjugation link.");
 					return 1;
 				}
 
@@ -66,8 +74,8 @@ namespace cardscrape
 				var term = driver.FindElementByCssSelector (".card .quickdef .source-text").Text.Trim ();
 				var translation = driver.FindElementByCssSelector (".card .quickdef .lang").Text.Trim();
 
-				if (term.ToLowerInvariant () != Verb.ToLower ()) {
-					Console.WriteLine ("The verb provided '" + Verb + "' does not match the base form found '" + term + "'.  Please use the base form.");
+				if (term.ToLowerInvariant () != verb.ToLower ()) {
+					Console.WriteLine ("The verb provided '" + verb + "' does not match the base form found '" + term + "'.  Please use the base form.");
 					return 1;
 				}
 
@@ -99,7 +107,6 @@ namespace cardscrape
 							rowNames[row],
 							});
 
-						var isNounAmibiguous = rowNames [row].Contains ("/");
 						var nounPhrase = rowNames [row].Split ('/').First ();
 
 						if (NounsToSkip.Contains (nounPhrase)) {
@@ -111,7 +118,7 @@ namespace cardscrape
 							InfinitiveForm = term,
 							InfinitiveDefinition = translation,
 							Term = value,
-							DeambiguatingNounphrase = isNounAmibiguous ? nounPhrase : null
+							DeambiguatingNounphrase = nounPhrase
 						});
 					}
 
