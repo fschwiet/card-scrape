@@ -1,0 +1,24 @@
+distinguir,to distinguish,
+distingo,i distinguish,distinguir - to distinguish
+distingues,you distinguish,distinguir - to distinguish
+distingue,he(it) distinguishes,distinguir - to distinguish
+distinguimos,we distinguish,distinguir - to distinguish
+distinguen,they distinguish,distinguir - to distinguish
+divertir,"to amuse, to entertain",
+divierto,i entertain,"divertir - to amuse, to entertain"
+diviertes,you entertain,"divertir - to amuse, to entertain"
+divierte,he(it) entertains,"divertir - to amuse, to entertain"
+divertimos,we entertain,"divertir - to amuse, to entertain"
+divierten,they entertain,"divertir - to amuse, to entertain"
+dormir,to sleep,
+duermo,i sleep,dormir - to sleep
+duermes,you sleep,dormir - to sleep
+duerme,he sleeps,dormir - to sleep
+dormimos,we sleep,dormir - to sleep
+duermen,they sleep,dormir - to sleep
+dudar,to doubt,
+dudo,i doubt,dudar - to doubt
+dudas,you doubt,dudar - to doubt
+duda,he doubts,dudar - to doubt
+dudamos,we doubt,dudar - to doubt
+dudan,they doubt,dudar - to doubt

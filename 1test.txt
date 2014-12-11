@@ -1,0 +1,36 @@
+ser,to be (permanently),
+soy,i am,ser - to be (permanently)
+eres,you are,ser - to be (permanently)
+es,he,ser - to be (permanently)
+somos,to be,ser - to be (permanently)
+son,they are,ser - to be (permanently)
+estar,to be (temporarily),
+estoy,i am,estar - to be (temporarily)
+estás,you are,estar - to be (temporarily)
+está,he(it) is,estar - to be (temporarily)
+estamos,we are,estar - to be (temporarily)
+están,they are,estar - to be (temporarily)
+ir,to go,
+voy,"i am going to, i will",ir - to go
+vas,you go,ir - to go
+va,he(it) goes,ir - to go
+vamos,we go,ir - to go
+van,they go,ir - to go
+abrir,to open,
+abro,i open,abrir - to open
+abres,you open,abrir - to open
+abre,he(it) opens,abrir - to open
+abrimos,we open,abrir - to open
+abren,they open,abrir - to open
+aburrir,to bore,
+aburro,i bore,aburrir - to bore
+aburres,you bore,aburrir - to bore
+aburre,he bores,aburrir - to bore
+aburrimos,we bore,aburrir - to bore
+aburren,they bore,aburrir - to bore
+acosar,to harass,
+acoso,i harass,acosar - to harass
+acosas,you harass,acosar - to harass
+acosa,he(it) harasses,acosar - to harass
+acosamos,we harass,acosar - to harass
+acosan,they harass,acosar - to harass

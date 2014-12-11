@@ -135,7 +135,6 @@ prometer
 proponer
 proteger
 quedar
-quejar
 quemar
 querer
 quitar

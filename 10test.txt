@@ -1,0 +1,48 @@
+levantar,"to pick up, to lift, to raise",
+levanto,i raise,"levantar - to pick up, to lift, to raise"
+levantas,you raise,"levantar - to pick up, to lift, to raise"
+levanta,he(it) raises,"levantar - to pick up, to lift, to raise"
+levantamos,we raise,"levantar - to pick up, to lift, to raise"
+levantan,they raise,"levantar - to pick up, to lift, to raise"
+limpiar,to clean,
+limpio,i clean,limpiar - to clean
+limpias,you clean,limpiar - to clean
+limpia,he(it) cleans,limpiar - to clean
+limpiamos,we clean,limpiar - to clean
+limpian,they clean,limpiar - to clean
+llegar,"to arrive, to come",
+llego,i come,"llegar - to arrive, to come"
+llegas,you come,"llegar - to arrive, to come"
+llega,he(it) comes,"llegar - to arrive, to come"
+llegamos,we come,"llegar - to arrive, to come"
+llegan,they come,"llegar - to arrive, to come"
+llevar,to take; to wear,
+llevo,i go,llevar - to take; to wear
+llevas,you go,llevar - to take; to wear
+lleva,he(it) goes,llevar - to take; to wear
+llevamos,we go,llevar - to take; to wear
+llevan,they go,llevar - to take; to wear
+mandar,to send; to be in command; to order,
+mando,i am in charge,mandar - to send; to be in command; to order
+mandas,you are in charge,mandar - to send; to be in command; to order
+manda,he(it) is in charge,mandar - to send; to be in command; to order
+mandamos,we are in charge,mandar - to send; to be in command; to order
+mandan,they are in charge,mandar - to send; to be in command; to order
+mentir,to lie,
+miento,i lie,mentir - to lie
+mientes,you lie,mentir - to lie
+miente,he lies,mentir - to lie
+mentimos,we lie,mentir - to lie
+mienten,they lie,mentir - to lie
+merecer,to deserve,
+merezco,i deserve,merecer - to deserve
+mereces,you deserve,merecer - to deserve
+merece,he(it) deserves,merecer - to deserve
+merecemos,we deserve,merecer - to deserve
+merecen,they deserve,merecer - to deserve
+meter,to put,
+meto,i put,meter - to put
+metes,you put,meter - to put
+mete,he(it) puts,meter - to put
+metemos,we put,meter - to put
+meten,they put,meter - to put

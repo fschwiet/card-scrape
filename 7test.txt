@@ -1,0 +1,24 @@
+elegir,"to choose (from some options, used more for elections instead of escoger)",
+elijo,i choose,"elegir - to choose (from some options, used more for elections instead of escoger)"
+eliges,you choose,"elegir - to choose (from some options, used more for elections instead of escoger)"
+elige,he(it) chooses,"elegir - to choose (from some options, used more for elections instead of escoger)"
+elegimos,we choose,"elegir - to choose (from some options, used more for elections instead of escoger)"
+eligen,they choose,"elegir - to choose (from some options, used more for elections instead of escoger)"
+empezar,"to start, to begin",
+empiezo,i start,"empezar - to start, to begin"
+empiezas,you start,"empezar - to start, to begin"
+empieza,he(it) starts,"empezar - to start, to begin"
+empezamos,we start,"empezar - to start, to begin"
+empiezan,they start,"empezar - to start, to begin"
+encantar,"to love, to bewitch",
+encanto,i love,"encantar - to love, to bewitch"
+encantas,you love,"encantar - to love, to bewitch"
+encanta,he(it) loves,"encantar - to love, to bewitch"
+encantamos,we love,"encantar - to love, to bewitch"
+encantan,they love,"encantar - to love, to bewitch"
+encoger,to shrink; to decrease,
+encojo,i shrink,encoger - to shrink; to decrease
+encoges,you shrink,encoger - to shrink; to decrease
+encoge,he(it) shrinks,encoger - to shrink; to decrease
+encogemos,we shrink,encoger - to shrink; to decrease
+encogen,they shrink,encoger - to shrink; to decrease

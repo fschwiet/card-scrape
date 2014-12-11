@@ -1,0 +1,192 @@
+atravesar,"to cross, to go through",
+atravieso,i cross,"atravesar - to cross, to go through"
+atraviesas,you cross,"atravesar - to cross, to go through"
+atraviesa,he(it) crosses,"atravesar - to cross, to go through"
+atravesamos,we cross,"atravesar - to cross, to go through"
+atraviesan,they cross,"atravesar - to cross, to go through"
+barrer,to sweep,
+barro,i sweep,barrer - to sweep
+barres,you sweep,barrer - to sweep
+barre,he(it) sweeps,barrer - to sweep
+barremos,we sweep,barrer - to sweep
+barren,they sweep,barrer - to sweep
+bañar,to take a bath,
+baño,i bathe,bañar - to take a bath
+bañas,you bathe,bañar - to take a bath
+baña,he(it) bathes,bañar - to take a bath
+bañamos,we bathe,bañar - to take a bath
+bañan,they bathe,bañar - to take a bath
+besar,to kiss,
+beso,i kiss,besar - to kiss
+besas,you kiss,besar - to kiss
+besa,he(it) kisses,besar - to kiss
+besamos,we kiss,besar - to kiss
+besan,they kiss,besar - to kiss
+borrar,to delete,
+borro,i erase,borrar - to delete
+borras,you erase,borrar - to delete
+borra,he(it) erases,borrar - to delete
+borramos,we erase,borrar - to delete
+borran,they erase,borrar - to delete
+burlar,"to trick, to deceive",
+burlo,i joke,"burlar - to trick, to deceive"
+burlas,you joke,"burlar - to trick, to deceive"
+burla,he jokes,"burlar - to trick, to deceive"
+burlamos,we joke,"burlar - to trick, to deceive"
+burlan,they joke,"burlar - to trick, to deceive"
+caber,to fit,
+quepo,i fit,caber - to fit
+cabes,you fit,caber - to fit
+cabe,he(it) fits,caber - to fit
+cabemos,we fit,caber - to fit
+caben,they fit,caber - to fit
+caer,to fall,
+caigo,i fall down,caer - to fall
+caes,you fall down,caer - to fall
+cae,he(it) falls down,caer - to fall
+caemos,we fall down,caer - to fall
+caen,they fall down,caer - to fall
+calentar,"to heat up, to warm up",
+caliento,i warm,"calentar - to heat up, to warm up"
+calientas,you warm,"calentar - to heat up, to warm up"
+calienta,he(it) warms,"calentar - to heat up, to warm up"
+calentamos,we warm,"calentar - to heat up, to warm up"
+calientan,they warm,"calentar - to heat up, to warm up"
+cambiar,to change,
+cambio,i change,cambiar - to change
+cambias,you change,cambiar - to change
+cambia,he(it) changes,cambiar - to change
+cambiamos,we change,cambiar - to change
+cambian,they change,cambiar - to change
+cansar,"to tire out, to bore, to exhaust",
+canso,i am tiring,"cansar - to tire out, to bore, to exhaust"
+cansas,you are tiring,"cansar - to tire out, to bore, to exhaust"
+cansa,he(it) is tiring,"cansar - to tire out, to bore, to exhaust"
+cansamos,we are tiring,"cansar - to tire out, to bore, to exhaust"
+cansan,they are tiring,"cansar - to tire out, to bore, to exhaust"
+casar,to marry,
+caso,i marry,casar - to marry
+casas,you marry,casar - to marry
+casa,he marries,casar - to marry
+casamos,we marry,casar - to marry
+casan,they marry,casar - to marry
+cenar,to have dinner,
+ceno,i have dinner,cenar - to have dinner
+cenas,you have dinner,cenar - to have dinner
+cena,he(it) has dinner,cenar - to have dinner
+cenamos,we have dinner,cenar - to have dinner
+cenan,they have dinner,cenar - to have dinner
+cepillar,to brush,
+cepillo,i brush,cepillar - to brush
+cepillas,you brush,cepillar - to brush
+cepilla,he(it) brushes,cepillar - to brush
+cepillamos,we brush,cepillar - to brush
+cepillan,they brush,cepillar - to brush
+cerrar,to close,
+cierro,i close,cerrar - to close
+cierras,you close,cerrar - to close
+cierra,he(it) closes,cerrar - to close
+cerramos,we close,cerrar - to close
+cierran,they close,cerrar - to close
+circular,"to circulate, to drive",
+circulo,i circulate,"circular - to circulate, to drive"
+circulas,you circulate,"circular - to circulate, to drive"
+circula,he(it) circulates,"circular - to circulate, to drive"
+circulamos,we circulate,"circular - to circulate, to drive"
+circulan,they circulate,"circular - to circulate, to drive"
+cobrar,to charge,
+cobro,i charge,cobrar - to charge
+cobras,you charge,cobrar - to charge
+cobra,he charges,cobrar - to charge
+cobramos,we charge,cobrar - to charge
+cobran,they charge,cobrar - to charge
+cocinar,to cook,
+cocino,i cook,cocinar - to cook
+cocinas,you cook,cocinar - to cook
+cocina,he cooks,cocinar - to cook
+cocinamos,we cook,cocinar - to cook
+cocinan,they cook,cocinar - to cook
+coger,to take,
+cojo,i take,coger - to take
+coges,you take,coger - to take
+coge,he(it) takes,coger - to take
+cogemos,we take,coger - to take
+cogen,they take,coger - to take
+comenzar,to start,
+comienzo,i begin,comenzar - to start
+comienzas,you begin,comenzar - to start
+comienza,he(it) begins,comenzar - to start
+comenzamos,we begin,comenzar - to start
+comienzan,they begin,comenzar - to start
+compartir,to share,
+comparto,i share,compartir - to share
+compartes,you share,compartir - to share
+comparte,he shares,compartir - to share
+compartimos,we share,compartir - to share
+comparten,they share,compartir - to share
+complacer,to please,
+complazco,i like,complacer - to please
+complaces,you like,complacer - to please
+complace,he(it) likes,complacer - to please
+complacemos,we like,complacer - to please
+complacen,they like,complacer - to please
+componer,to fix; to compose,
+compongo,i compose,componer - to fix; to compose
+compones,you compose,componer - to fix; to compose
+compone,he(it) composes,componer - to fix; to compose
+componemos,we compose,componer - to fix; to compose
+componen,they compose,componer - to fix; to compose
+comprender,to understand; to include,
+comprendo,i understand,comprender - to understand; to include
+comprendes,you understand,comprender - to understand; to include
+comprende,he(it) understands,comprender - to understand; to include
+comprendemos,we understand,comprender - to understand; to include
+comprenden,they understand,comprender - to understand; to include
+conducir,to drive; to lead,
+conduzco,i drive,conducir - to drive; to lead
+conduces,you drive,conducir - to drive; to lead
+conduce,he drives,conducir - to drive; to lead
+conducimos,we drive,conducir - to drive; to lead
+conducen,they drive,conducir - to drive; to lead
+conjugar,to combine,
+conjugo,i bring together,conjugar - to combine
+conjugas,you bring together,conjugar - to combine
+conjuga,he(it) brings together,conjugar - to combine
+conjugamos,we bring together,conjugar - to combine
+conjugan,they bring together,conjugar - to combine
+conocer,"to know, to meet",
+conozco,i know,"conocer - to know, to meet"
+conoces,you know,"conocer - to know, to meet"
+conoce,he(it) knows,"conocer - to know, to meet"
+conocemos,we know,"conocer - to know, to meet"
+conocen,they know,"conocer - to know, to meet"
+conseguir,to get,
+consigo,i manage,conseguir - to get
+consigues,you manage,conseguir - to get
+consigue,he(it) manages,conseguir - to get
+conseguimos,we manage,conseguir - to get
+consiguen,they manage,conseguir - to get
+construir,to build,
+construyo,i construct,construir - to build
+construyes,you construct,construir - to build
+construye,he constructs,construir - to build
+construimos,we construct,construir - to build
+construyen,they construct,construir - to build
+contener,to contain,
+contengo,i contain,contener - to contain
+contienes,you contain,contener - to contain
+contiene,he(it) contains,contener - to contain
+contenemos,we contain,contener - to contain
+contienen,they contain,contener - to contain
+contestar,to answer; to protest,
+contesto,i answer,contestar - to answer; to protest
+contestas,you answer,contestar - to answer; to protest
+contesta,he answers,contestar - to answer; to protest
+contestamos,we answer,contestar - to answer; to protest
+contestan,they answer,contestar - to answer; to protest
+convencer,to convince,
+convenzo,i convince,convencer - to convince
+convences,you convince,convencer - to convince
+convence,he convinces,convencer - to convince
+convencemos,we convince,convencer - to convince
+convencen,they convince,convencer - to convince

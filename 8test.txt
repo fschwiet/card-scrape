@@ -1,0 +1,78 @@
+enojar,"to anger, to upset",
+enojo,i anger,"enojar - to anger, to upset"
+enojas,you anger,"enojar - to anger, to upset"
+enoja,he(it) angers,"enojar - to anger, to upset"
+enojamos,we anger,"enojar - to anger, to upset"
+enojan,they anger,"enojar - to anger, to upset"
+enseñar,to teach,
+enseño,i teach,enseñar - to teach
+enseñas,you teach,enseñar - to teach
+enseña,he(it) teaches,enseñar - to teach
+enseñamos,we teach,enseñar - to teach
+enseñan,they teach,enseñar - to teach
+entender,to understand,
+entiendo,i understand,entender - to understand
+entiendes,you understand,entender - to understand
+entiende,he(it) understands,entender - to understand
+entendemos,we understand,entender - to understand
+entienden,they understand,entender - to understand
+equivocar,to be wrong,
+equivoco,i mistake,equivocar - to be wrong
+equivocas,you mistake,equivocar - to be wrong
+equivoca,he mistakes,equivocar - to be wrong
+equivocamos,we mistake,equivocar - to be wrong
+equivocan,they mistake,equivocar - to be wrong
+escoger,to choose (from some options),
+escojo,i choose,escoger - to choose (from some options)
+escoges,you choose,escoger - to choose (from some options)
+escoge,he chooses,escoger - to choose (from some options)
+escogemos,we choose,escoger - to choose (from some options)
+escogen,they choose,escoger - to choose (from some options)
+escribir,to write,
+escribo,i write,escribir - to write
+escribes,you write,escribir - to write
+escribe,he writes,escribir - to write
+escribimos,we write,escribir - to write
+escriben,they write,escribir - to write
+escuchar,to listen,
+escucho,i listen,escuchar - to listen
+escuchas,you listen,escuchar - to listen
+escucha,he listens,escuchar - to listen
+escuchamos,we listen,escuchar - to listen
+escuchan,they listen,escuchar - to listen
+establecer,"to establish, to set",
+establezco,i establish,"establecer - to establish, to set"
+estableces,you establish,"establecer - to establish, to set"
+establece,he(it) establishes,"establecer - to establish, to set"
+establecemos,we establish,"establecer - to establish, to set"
+establecen,they establish,"establecer - to establish, to set"
+estirar,to stretch,
+estiro,i stretch,estirar - to stretch
+estiras,you stretch,estirar - to stretch
+estira,he(it) stretches,estirar - to stretch
+estiramos,we stretch,estirar - to stretch
+estiran,they stretch,estirar - to stretch
+exigir,"to demand, to require",
+exijo,i demand,"exigir - to demand, to require"
+exiges,you demand,"exigir - to demand, to require"
+exige,he(it) demands,"exigir - to demand, to require"
+exigimos,we demand,"exigir - to demand, to require"
+exigen,they demand,"exigir - to demand, to require"
+extinguir,to extinguish,
+extingo,i extinguish,extinguir - to extinguish
+extingues,you extinguish,extinguir - to extinguish
+extingue,he(it) extinguishes,extinguir - to extinguish
+extinguimos,we extinguish,extinguir - to extinguish
+extinguen,they extinguish,extinguir - to extinguish
+faltar,to miss; to fail,
+falto,i am missing,faltar - to miss; to fail
+faltas,you are missing,faltar - to miss; to fail
+falta,he(it) is missing,faltar - to miss; to fail
+faltamos,we are missing,faltar - to miss; to fail
+faltan,they are missing,faltar - to miss; to fail
+fijar,"to fix, to set, to determine",
+fijo,i fix,"fijar - to fix, to set, to determine"
+fijas,you fix,"fijar - to fix, to set, to determine"
+fija,he(it) fixes,"fijar - to fix, to set, to determine"
+fijamos,we fix,"fijar - to fix, to set, to determine"
+fijan,they fix,"fijar - to fix, to set, to determine"

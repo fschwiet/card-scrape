@@ -1,0 +1,72 @@
+decidir,to decide,
+decido,i decide,decidir - to decide
+decides,you decide,decidir - to decide
+decide,he decides,decidir - to decide
+decidimos,we decide,decidir - to decide
+deciden,they decide,decidir - to decide
+depilar,to remove unwanted hair,
+depilo,i depilate,depilar - to remove unwanted hair
+depilas,you depilate,depilar - to remove unwanted hair
+depila,he depilates,depilar - to remove unwanted hair
+depilamos,we depilate,depilar - to remove unwanted hair
+depilan,they depilate,depilar - to remove unwanted hair
+descansar,to rest,
+descanso,i rest,descansar - to rest
+descansas,you rest,descansar - to rest
+descansa,he rests,descansar - to rest
+descansamos,we rest,descansar - to rest
+descansan,they rest,descansar - to rest
+deshacer,to undo; to melt; to destroy,
+deshago,i undo,deshacer - to undo; to melt; to destroy
+deshaces,you undo,deshacer - to undo; to melt; to destroy
+deshace,he(it) undoes,deshacer - to undo; to melt; to destroy
+deshacemos,we undo,deshacer - to undo; to melt; to destroy
+deshacen,they undo,deshacer - to undo; to melt; to destroy
+despedir,"to say goodbye; to dismiss, to get rid of",
+despido,i dismiss(see off),"despedir - to say goodbye; to dismiss, to get rid of"
+despides,you dismiss(see off),"despedir - to say goodbye; to dismiss, to get rid of"
+despide,he dismisses(sees off),"despedir - to say goodbye; to dismiss, to get rid of"
+despedimos,we dismiss(see off),"despedir - to say goodbye; to dismiss, to get rid of"
+despiden,they dismiss(see off),"despedir - to say goodbye; to dismiss, to get rid of"
+despertar,to wake up,
+despierto,i wake up,despertar - to wake up
+despiertas,you wake up,despertar - to wake up
+despierta,he wakes up,despertar - to wake up
+despertamos,we wake up,despertar - to wake up
+despiertan,they wake up,despertar - to wake up
+destruir,to destroy,
+destruyo,i destroy,destruir - to destroy
+destruyes,you destroy,destruir - to destroy
+destruye,he(it) destroys,destruir - to destroy
+destruimos,we destroy,destruir - to destroy
+destruyen,they destroy,destruir - to destroy
+devolver,to give back; to return; to throw up,
+devuelvo,i am sick,devolver - to give back; to return; to throw up
+devuelves,you are sick,devolver - to give back; to return; to throw up
+devuelve,he is sick,devolver - to give back; to return; to throw up
+devolvemos,we are sick,devolver - to give back; to return; to throw up
+devuelven,they are sick,devolver - to give back; to return; to throw up
+dirigir,"to lead; to direct, to address; to manage, to control",
+dirijo,i direct,"dirigir - to lead; to direct, to address; to manage, to control"
+diriges,you direct,"dirigir - to lead; to direct, to address; to manage, to control"
+dirige,he(it) directs,"dirigir - to lead; to direct, to address; to manage, to control"
+dirigimos,we direct,"dirigir - to lead; to direct, to address; to manage, to control"
+dirigen,they direct,"dirigir - to lead; to direct, to address; to manage, to control"
+discutir,"to argue, to discuss",
+discuto,i discuss,"discutir - to argue, to discuss"
+discutes,you discuss,"discutir - to argue, to discuss"
+discute,he(it) discusses,"discutir - to argue, to discuss"
+discutimos,we discuss,"discutir - to argue, to discuss"
+discuten,they discuss,"discutir - to argue, to discuss"
+disponer,to have; to arrange; to order,
+dispongo,i have,disponer - to have; to arrange; to order
+dispones,you have,disponer - to have; to arrange; to order
+dispone,he has,disponer - to have; to arrange; to order
+disponemos,we have,disponer - to have; to arrange; to order
+disponen,they have,disponer - to have; to arrange; to order
+distraer,"to entertain, to amuse, to distract",
+distraigo,i am relaxing,"distraer - to entertain, to amuse, to distract"
+distraes,you are relaxing,"distraer - to entertain, to amuse, to distract"
+distrae,he(it) is relaxing,"distraer - to entertain, to amuse, to distract"
+distraemos,we are relaxing,"distraer - to entertain, to amuse, to distract"
+distraen,they are relaxing,"distraer - to entertain, to amuse, to distract"
