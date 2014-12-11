@@ -12,7 +12,7 @@ namespace cardscrape
 	{
 		public class Result {
 			public string TermConjugationIdentifier;
-			public string PossibleNounPhrase;
+			public string DeambiguatingNounphrase;
 			public string Term;
 			public string TermDefinition;  // use google translate?
 			public string InfinitiveForm;
@@ -59,7 +59,9 @@ namespace cardscrape
 					return 1;
 				}
 
-				conjugateLink.Click ();
+				// for some undetermined reason conjugateLink is reported as not visible for verb 'ir'
+				// so we can't just conjugateLink.Click (), instead we use javascript
+				driver.ExecuteScript ("arguments[0].click();", conjugateLink);
 
 				var term = driver.FindElementByCssSelector (".card .quickdef .source-text").Text.Trim ();
 				var translation = driver.FindElementByCssSelector (".card .quickdef .lang").Text.Trim();
@@ -97,6 +99,7 @@ namespace cardscrape
 							rowNames[row],
 							});
 
+						var isNounAmibiguous = rowNames [row].Contains ("/");
 						var nounPhrase = rowNames [row].Split ('/').First ();
 
 						if (NounsToSkip.Contains (nounPhrase)) {
@@ -108,7 +111,7 @@ namespace cardscrape
 							InfinitiveForm = term,
 							InfinitiveDefinition = translation,
 							Term = value,
-							PossibleNounPhrase = nounPhrase
+							DeambiguatingNounphrase = isNounAmibiguous ? nounPhrase : null
 						});
 					}
 
@@ -116,11 +119,13 @@ namespace cardscrape
 
 						var termToSearch = result.Term;
 
-						if (result.PossibleNounPhrase != "nosotros") {
+						if (result.DeambiguatingNounphrase != null) {
 							//  For some reason Google Translate says "nosotros dormimos" is "us slept" and
 							//  that "dormimos" is "we slept".  So lets not put Nosotros in.
 
-							termToSearch = result.PossibleNounPhrase + " " + result.Term;
+							//  "tú estás" is being weird too.  So we only add the nownphrase for ambigious
+							//  conjugations
+							termToSearch = result.DeambiguatingNounphrase + " " + result.Term;
 						}
 
 						driver.Navigate ().GoToUrl ("https://translate.google.com/#es/en/" + termToSearch);
