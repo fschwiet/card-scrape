@@ -65,6 +65,8 @@ namespace cardscrape
 			using (var driver = new ChromeDriver(service, options))
 			foreach (var inputVerb in Verbs) {
 
+				driver.Manage ().Timeouts ().ImplicitlyWait (TimeSpan.FromSeconds (5));
+
 				var verb = inputVerb.Verb;
 			
 				driver.Navigate ().GoToUrl ("http://www.spanishdict.com/translate/" + verb);
@@ -147,9 +149,7 @@ namespace cardscrape
 							DeambiguatingNounphrase = nounPhrase
 						});
 					}
-
-					driver.Manage ().Timeouts ().ImplicitlyWait (TimeSpan.FromSeconds (5));
-
+							
 					foreach (var result in results) {
 
 						var termToSearch = result.DeambiguatingNounphrase + " " + result.Term;
