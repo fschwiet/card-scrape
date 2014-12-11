@@ -144,7 +144,13 @@ namespace cardscrape
 					}
 				}
 
-				Console.WriteLine (Newtonsoft.Json.JsonConvert.SerializeObject (results.ToArray (), Newtonsoft.Json.Formatting.Indented));
+				using (var csvWriter = new CsvHelper.CsvWriter(Console.Out))
+				foreach (var result in results) {
+						csvWriter.WriteField (result.Term);
+						csvWriter.WriteField (result.TermDefinition);
+						csvWriter.WriteField (result.InfinitiveForm + " - " + result.InfinitiveDefinition);
+						csvWriter.NextRecord ();
+				}
 			}
 
 			return 0;
