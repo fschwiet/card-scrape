@@ -15,7 +15,7 @@ namespace cardscrape
 			public string TermConjugationIdentifier;
 			public string DeambiguatingNounphrase;
 			public string Term;
-			public string TermDefinition;  // use google translate?
+			public string TermDefinition;
 			public string InfinitiveForm;
 			public string InfinitiveDefinition;
 		}
@@ -122,30 +122,16 @@ namespace cardscrape
 						});
 					}
 
+					driver.Manage ().Timeouts ().ImplicitlyWait (TimeSpan.FromSeconds (5));
+
 					foreach (var result in results) {
 
-						var termToSearch = result.Term;
+						var termToSearch = result.DeambiguatingNounphrase + " " + result.Term;
 
-						if (result.DeambiguatingNounphrase != null) {
-							//  For some reason Google Translate says "nosotros dormimos" is "us slept" and
-							//  that "dormimos" is "we slept".  So lets not put Nosotros in.
-
-							//  "tú estás" is being weird too.  So we only add the nownphrase for ambigious
-							//  conjugations
-							termToSearch = result.DeambiguatingNounphrase + " " + result.Term;
-						}
-
-						driver.Navigate ().GoToUrl ("https://translate.google.com/#es/en/" + termToSearch);
-
-						string definition = null;
-
-						do {
-							if (definition != null) {
-								System.Threading.Thread.Sleep(200);
-							}
-
-							definition = driver.FindElementByCssSelector ("#result_box").Text.Trim ();
-						} while(definition.Contains("..."));
+						var translateUrl = "http://www.spanishdict.com/translate/" + Uri.EscapeDataString (termToSearch);
+						driver.Navigate ().GoToUrl (translateUrl);
+						
+						string definition = driver.FindElementByCssSelector(".mt-info.promt .mt-info-text, .quickdef .el").Text;
 
 						result.TermDefinition = definition;
 					}
