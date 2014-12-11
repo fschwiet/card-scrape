@@ -91,6 +91,11 @@ namespace cardscrape
 
 				List<Result> results = new List<Result> ();
 
+				results.Add(new Result() {
+					Term = term,
+					TermDefinition = translation
+				});
+
 				for (var column = 0; column < columnNames.Length; column++) {
 
 					if (!TensesToInclude.Contains(columnNames[column]))
@@ -131,7 +136,15 @@ namespace cardscrape
 						var translateUrl = "http://www.spanishdict.com/translate/" + Uri.EscapeDataString (termToSearch);
 						driver.Navigate ().GoToUrl (translateUrl);
 						
-						string definition = driver.FindElementByCssSelector(".mt-info.promt .mt-info-text, .quickdef .el").Text;
+						string definition = null;
+						do {
+							var selector = ".mt-info.promt .mt-info-text, .quickdef .el";
+							if (driver.FindElementsByCssSelector("#translate-en").Any()) {
+								selector = ".mt-info.promt .mt-info-text, #translate-en .quickdef .el";
+							}
+
+							definition = driver.FindElementByCssSelector (selector).Text.Trim ().ToLowerInvariant ();
+						} while(definition.Length == 0);
 
 						result.TermDefinition = definition;
 					}
@@ -141,7 +154,9 @@ namespace cardscrape
 				foreach (var result in results) {
 						csvWriter.WriteField (result.Term);
 						csvWriter.WriteField (result.TermDefinition);
-						csvWriter.WriteField (result.InfinitiveForm + " - " + result.InfinitiveDefinition);
+						if (result.InfinitiveForm != null) {
+							csvWriter.WriteField (result.InfinitiveForm + " - " + result.InfinitiveDefinition);
+						}
 						csvWriter.NextRecord ();
 				}
 			}
