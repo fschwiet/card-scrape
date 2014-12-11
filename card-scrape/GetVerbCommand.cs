@@ -11,6 +11,11 @@ namespace cardscrape
 {
 	public class GetVerbCommand : ConsoleCommand
 	{
+		public class InputVerb {
+			public string Verb;
+			public string ExtraInfo;
+		}
+
 		public class Result {
 			public string TermConjugationIdentifier;
 			public string DeambiguatingNounphrase;
@@ -20,7 +25,7 @@ namespace cardscrape
 			public string InfinitiveDefinition;
 		}
 
-		public List<string> Verbs = new List<string>();
+		public List<InputVerb> Verbs = new List<InputVerb>();
 		public string[] NounsToSkip = new [] {
 			"vosotros"
 		};
@@ -39,9 +44,17 @@ namespace cardscrape
 		{
 			foreach (var arg in remainingArguments) {
 				if (File.Exists (arg)) {
-					Verbs.AddRange (File.ReadAllLines (arg).Where (l => l.Trim ().Length > 0));
+					foreach (var line in File.ReadAllLines (arg).Where (l => l.Trim ().Length > 0)) {
+						var pieces = line.Split (new [] { ';' }, 2);
+						Verbs.Add (new InputVerb() {
+							Verb = pieces[0].Trim(),
+							ExtraInfo = pieces.Length > 1 ? pieces[1].Trim() : null
+						});
+					}
 				} else {
-					Verbs.Add (arg);
+					Verbs.Add (new InputVerb() {
+						Verb = arg
+					});
 				}
 			}
 
@@ -50,7 +63,9 @@ namespace cardscrape
 			service.SuppressInitialDiagnosticInformation = true;
 
 			using (var driver = new ChromeDriver(service, options))
-			foreach (var verb in Verbs) {
+			foreach (var inputVerb in Verbs) {
+
+				var verb = inputVerb.Verb;
 			
 				driver.Navigate ().GoToUrl ("http://www.spanishdict.com/translate/" + verb);
 
@@ -74,6 +89,10 @@ namespace cardscrape
 				var term = driver.FindElementByCssSelector (".card .quickdef .source-text").Text.Trim ();
 				var translation = driver.FindElementByCssSelector (".card .quickdef .lang").Text.Trim();
 
+				if (inputVerb.ExtraInfo != null) {
+					translation = translation + " " + inputVerb.ExtraInfo;
+				}
+
 				if (term.ToLowerInvariant () != verb.ToLower ()) {
 					Console.WriteLine ("The verb provided '" + verb + "' does not match the base form found '" + term + "'.  Please use the base form.");
 					return 1;
@@ -83,18 +102,20 @@ namespace cardscrape
 					var vtableType = vtableLabel.Text.Trim ().ToLower().Replace(" ", "-");
 					driver.ExecuteScript("arguments[0].classList.add('vtable-label-" + vtableType + "');",vtableLabel);
 				}
+				
+				var infinitiveResult = new Result () {
+					Term = term,
+					TermDefinition = translation
+				};
+
+				List<Result> results = new List<Result> ();
+
+				results.Add(infinitiveResult);
 
 				var indicativeTable = driver.FindElementByCssSelector (".vtable-label-indicative + .vtable-wrapper");
 
 				var columnNames = indicativeTable.FindElements (By.CssSelector ("tr:first-child td")).Select (e => e.Text.ToLower()).Skip (1).ToArray ();
 				var rowNames = indicativeTable.FindElements (By.CssSelector ("tr td:first-child")).Select (e => e.Text.ToLower()).Skip (1).ToArray ();
-
-				List<Result> results = new List<Result> ();
-
-				results.Add(new Result() {
-					Term = term,
-					TermDefinition = translation
-				});
 
 				for (var column = 0; column < columnNames.Length; column++) {
 
@@ -135,18 +156,20 @@ namespace cardscrape
 
 						var translateUrl = "http://www.spanishdict.com/translate/" + Uri.EscapeDataString (termToSearch);
 						driver.Navigate ().GoToUrl (translateUrl);
-						
-						string definition = null;
-						do {
-							var selector = ".mt-info.promt .mt-info-text, .quickdef .el";
-							if (driver.FindElementsByCssSelector("#translate-en").Any()) {
-								selector = ".mt-info.promt .mt-info-text, #translate-en .quickdef .el";
-							}
 
-							definition = driver.FindElementByCssSelector (selector).Text.Trim ().ToLowerInvariant ();
-						} while(definition.Length == 0);
+						if (result.TermDefinition == null) {
+							string definition = null;
+							do {
+								var selector = ".mt-info.promt .mt-info-text, .quickdef .el";
+								if (driver.FindElementsByCssSelector("#translate-en").Any()) {
+									selector = ".mt-info.promt .mt-info-text, #translate-en .quickdef .el";
+								}
 
-						result.TermDefinition = definition;
+								definition = driver.FindElementByCssSelector (selector).Text.Trim ().ToLowerInvariant ();
+							} while(definition.Length == 0);
+
+							result.TermDefinition = definition;
+						}						
 					}
 				}
 
