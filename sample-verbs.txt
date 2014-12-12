@@ -167,6 +167,7 @@ suponer
 tejer
 temblar
 temer
+tener
 terminar
 tocar
 torcer
