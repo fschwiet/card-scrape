@@ -1,0 +1,66 @@
+sembrar,"to plant, to sow",
+siembro,i sow,"sembrar - to plant, to sow"
+siembras,you sow,"sembrar - to plant, to sow"
+siembra,he sows,"sembrar - to plant, to sow"
+sembramos,we sow,"sembrar - to plant, to sow"
+siembran,they sow,"sembrar - to plant, to sow"
+sentar,to sit,
+siento,i feel,sentar - to sit
+sientas,you sit,sentar - to sit
+sienta,he(it) feel,sentar - to sit
+sentamos,we sit,sentar - to sit
+sientan,they feel,sentar - to sit
+sentir,to feel,
+siento,i feel,sentir - to feel
+sientes,you feel,sentir - to feel
+siente,he feels,sentir - to feel
+sentimos,we feel,sentir - to feel
+sienten,they feel,sentir - to feel
+servir,to serve,
+sirvo,i serve,servir - to serve
+sirves,you serve,servir - to serve
+sirve,he(it) serves,servir - to serve
+servimos,we serve,servir - to serve
+sirven,they serve,servir - to serve
+sorprender,to surprise; to catch,
+sorprendo,i surprise,sorprender - to surprise; to catch
+sorprendes,you surprise,sorprender - to surprise; to catch
+sorprende,he(it) surprises,sorprender - to surprise; to catch
+sorprendemos,we surprise,sorprender - to surprise; to catch
+sorprenden,they surprise,sorprender - to surprise; to catch
+soñar,to dream,
+sueño,i dream,soñar - to dream
+sueñas,you dream,soñar - to dream
+sueña,he dreams,soñar - to dream
+soñamos,we dream,soñar - to dream
+sueñan,they dream,soñar - to dream
+sugerir,to suggest,
+sugiero,i suggest,sugerir - to suggest
+sugieres,you suggest,sugerir - to suggest
+sugiere,he suggests,sugerir - to suggest
+sugerimos,we suggest,sugerir - to suggest
+sugieren,they suggest,sugerir - to suggest
+suponer,to suppose,
+supongo,i suppose,suponer - to suppose
+supones,you suppose,suponer - to suppose
+supone,he supposes,suponer - to suppose
+suponemos,we suppose,suponer - to suppose
+suponen,they suppose,suponer - to suppose
+tejer,"to knit, to weave",
+tejo,i weave(tile),"tejer - to knit, to weave"
+tejes,you weave,"tejer - to knit, to weave"
+teje,he(it) weaves,"tejer - to knit, to weave"
+tejemos,we weave,"tejer - to knit, to weave"
+tejen,they weave,"tejer - to knit, to weave"
+temblar,"to shake; to tremble, to shiver",
+tiemblo,i tremble,"temblar - to shake; to tremble, to shiver"
+tiemblas,you tremble,"temblar - to shake; to tremble, to shiver"
+tiembla,he(it) trembles,"temblar - to shake; to tremble, to shiver"
+temblamos,we tremble,"temblar - to shake; to tremble, to shiver"
+tiemblan,they tremble,"temblar - to shake; to tremble, to shiver"
+temer,to fear,
+temo,i am afraid,temer - to fear
+temes,you are afraid,temer - to fear
+teme,he is afraid,temer - to fear
+tememos,we are afraid,temer - to fear
+temen,they are afraid,temer - to fear

@@ -1,0 +1,6 @@
+rehacer,"to redo, to do again",
+rehago,i redo,"rehacer - to redo, to do again"
+rehaces,you redo,"rehacer - to redo, to do again"
+rehace,he(it) redoes,"rehacer - to redo, to do again"
+rehacemos,we redo,"rehacer - to redo, to do again"
+rehacen,they redo,"rehacer - to redo, to do again"
