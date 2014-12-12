@@ -145,7 +145,7 @@ recordar
 regalar
 regresar
 rehacer
-reir
+reír
 repetir
 reponer
 resolver

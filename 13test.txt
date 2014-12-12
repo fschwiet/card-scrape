@@ -1,0 +1,18 @@
+recordar,to remember,
+recuerdo,i remember,recordar - to remember
+recuerdas,you remember,recordar - to remember
+recuerda,he remembers,recordar - to remember
+recordamos,we remember,recordar - to remember
+recuerdan,they remember,recordar - to remember
+regalar,to give,
+regalo,i give,regalar - to give
+regalas,you give,regalar - to give
+regala,he(it) gives,regalar - to give
+regalamos,we give,regalar - to give
+regalan,they give,regalar - to give
+regresar,return,
+regreso,i return,regresar - return
+regresas,you return,regresar - return
+regresa,he(it) returns,regresar - return
+regresamos,we return,regresar - return
+regresan,they return,regresar - return
