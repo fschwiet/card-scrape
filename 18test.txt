@@ -1,0 +1,36 @@
+tener,"to have, to be",
+tengo,i have,"tener - to have, to be"
+tienes,you have,"tener - to have, to be"
+tiene,he(it) has,"tener - to have, to be"
+tenemos,we have,"tener - to have, to be"
+tienen,they have,"tener - to have, to be"
+terminar,"to end, to finish",
+termino,i end,"terminar - to end, to finish"
+terminas,you end,"terminar - to end, to finish"
+termina,he(it) ends,"terminar - to end, to finish"
+terminamos,we end,"terminar - to end, to finish"
+terminan,they end,"terminar - to end, to finish"
+tocar,to touch,
+toco,i touch,tocar - to touch
+tocas,you touch,tocar - to touch
+toca,he(it) touches,tocar - to touch
+tocamos,we touch,tocar - to touch
+tocan,they touch,tocar - to touch
+torcer,to twist,
+tuerzo,i turn,torcer - to twist
+tuerces,you turn,torcer - to twist
+tuerce,he(it) turns,torcer - to twist
+torcemos,we turn,torcer - to twist
+tuercen,they turn,torcer - to twist
+traducir,to translate,
+traduzco,i translate,traducir - to translate
+traduces,you translate,traducir - to translate
+traduce,he translates,traducir - to translate
+traducimos,we translate,traducir - to translate
+traducen,they translate,traducir - to translate
+traer,to bring,
+traigo,i bring,traer - to bring
+traes,you bring,traer - to bring
+trae,he(it) brings,traer - to bring
+traemos,we bring,traer - to bring
+traen,they bring,traer - to bring
