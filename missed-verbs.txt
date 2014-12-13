@@ -4,6 +4,7 @@ conjugar; (and make compatible)
 descubrir
 decir
 fundar
+regalar; (permanently)
 sacar
 subir
 sumar

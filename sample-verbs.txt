@@ -141,7 +141,6 @@ recibir
 recoger
 reconocer
 recordar
-regalar
 regresar
 rehacer
 reír
