@@ -39,7 +39,6 @@ complacer
 componer
 comprender
 conducir
-conjugar
 conocer
 conseguir
 construir
