@@ -149,41 +149,40 @@ namespace cardscrape
 							});
 						}
 								
-						foreach (var result in results) {
+						foreach (var result in results.Where(r => r.TermDefinition == null)) {
 
 							var termToSearch = result.DeambiguatingNounphrase + " " + result.Term;
 
 							var translateUrl = "http://www.spanishdict.com/translate/" + Uri.EscapeDataString (termToSearch);
 							driver.Navigate ().GoToUrl (translateUrl);
 
-							if (result.TermDefinition == null) {
-								string definition = null;
-								do {
-									var selector = ".mt-info.promt .mt-info-text, .quickdef .el";
+							string definition = null;
 
-									//  Checking for an element that doesn't exist requires the fill timeout,
-									//  so we're going to do some timeout switching.
+							do {
+								var selector = ".mt-info.promt .mt-info-text, .quickdef .el";
 
-									//  First we do a long search to be sure the page has had time to load whatever
-									//  element we might be looking for, this search should still be fast as typically
-									//  we find something.
-									driver.FindElementByCssSelector(selector);
+								//  Checking for an element that doesn't exist requires the fill timeout,
+								//  so we're going to do some timeout switching.
 
-									//  Now we use the shorter timeout for the case where elements.Any() is typically
-									//  false (as WebDriver will wait for the full time)
-									driver.Manage().Timeouts().ImplicitlyWait(ShortWait);
+								//  First we do a long search to be sure the page has had time to load whatever
+								//  element we might be looking for, this search should still be fast as typically
+								//  we find something.
+								driver.FindElementByCssSelector(selector);
 
-									if (driver.FindElementsByCssSelector ("#translate-en").Any ()) {
-										selector = ".mt-info.promt .mt-info-text, #translate-en .quickdef .el";
-									}
+								//  Now we use the shorter timeout for the case where elements.Any() is typically
+								//  false (as WebDriver will wait for the full time)
+								driver.Manage().Timeouts().ImplicitlyWait(ShortWait);
 
-									definition = driver.FindElementByCssSelector (selector).Text.Trim ().ToLowerInvariant ();
+								if (driver.FindElementsByCssSelector ("#translate-en").Any ()) {
+									selector = ".mt-info.promt .mt-info-text, #translate-en .quickdef .el";
+								}
 
-									driver.Manage().Timeouts().ImplicitlyWait(LongWait);
-								} while(definition.Length == 0);
+								definition = driver.FindElementByCssSelector (selector).Text.Trim ().ToLowerInvariant ();
 
-								result.TermDefinition = definition;
-							}						
+								driver.Manage().Timeouts().ImplicitlyWait(LongWait);
+							} while(definition.Length == 0);
+
+							result.TermDefinition = definition;					
 						}
 					}
 
