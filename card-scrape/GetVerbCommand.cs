@@ -70,10 +70,10 @@ namespace cardscrape
 				
 					driver.Navigate ().GoToUrl ("http://www.spanishdict.com/translate/" + inputVerb.Verb);
 
-					var translationDiv = driver.FindElementsByCssSelector (".card .quickdef .lang").FirstOrDefault ();
+					var infinitiveRranslationDiv = driver.FindElementsByCssSelector (".card .quickdef .lang").FirstOrDefault ();
 					var conjugateLink = driver.FindElementsByCssSelector (".card a[href^='http://www.spanishdict.com/conjugate']").FirstOrDefault ();
 
-					if (translationDiv == null) {
+					if (infinitiveRranslationDiv == null) {
 						Console.WriteLine ("Unable to find translation of '" + inputVerb.Verb + "'.");
 						return 1;
 					}
@@ -88,10 +88,10 @@ namespace cardscrape
 					driver.ExecuteScript ("arguments[0].click();", conjugateLink);
 
 					var term = driver.FindElementByCssSelector (".card .quickdef .source-text").Text.Trim ();
-					var translation = driver.FindElementByCssSelector (".card .quickdef .lang").Text.Trim ();
+					var infinitiveTranslation = driver.FindElementByCssSelector (".card .quickdef .lang").Text.Trim ();
 
 					if (inputVerb.ExtraInfo != null) {
-						translation = translation + " " + inputVerb.ExtraInfo;
+						infinitiveTranslation = infinitiveTranslation + " " + inputVerb.ExtraInfo;
 					}
 
 					if (term.ToLowerInvariant () != inputVerb.Verb.ToLower ()) {
@@ -106,7 +106,7 @@ namespace cardscrape
 					
 					var infinitiveResult = new Result () {
 						Term = term,
-						TermDefinition = translation
+						TermDefinition = infinitiveTranslation
 					};
 
 					List<Result> results = new List<Result> ();
@@ -140,18 +140,24 @@ namespace cardscrape
 								continue;
 							}
 
-							results.Add (new Result () {
+							var result = new Result () {
 								TermConjugationIdentifier = identifier,
 								InfinitiveForm = term,
-								InfinitiveDefinition = translation,
+								InfinitiveDefinition = infinitiveTranslation,
 								Term = value,
 								DeambiguatingNounphrase = nounPhrase
-							});
+							};
+
+							results.Add (result);
 						}
 								
 						foreach (var result in results.Where(r => r.TermDefinition == null)) {
 
 							result.TermDefinition = TranslateUtils.TranslateSpanishToEnglish (driver, result.DeambiguatingNounphrase + " " + result.Term);
+						
+							if (inputVerb.ExtraInfo != null) {
+								result.TermDefinition = result.TermDefinition + " " + inputVerb.ExtraInfo;
+							}
 						}
 					}
 
