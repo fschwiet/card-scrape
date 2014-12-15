@@ -23,6 +23,7 @@ namespace cardscrapetest
 		[Test ()]
 		[TestCase("yo pongo", "I put")]
 		[TestCase("ellos ponen", "they put")]
+		[TestCase("ellos queman", "they burn")]
 		public void CanTranslate (string input, string expectedOutput)
 		{
 			var result = TranslateUtils.TranslateSpanishToEnglish (driver, input);
