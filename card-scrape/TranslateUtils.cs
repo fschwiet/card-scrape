@@ -11,6 +11,7 @@ namespace cardscrape
 		static public readonly TimeSpan LongWait = TimeSpan.FromSeconds(20);
 		static public readonly TimeSpan ShortWait = TimeSpan.FromMilliseconds(500);
 
+		//  The translation has heuristics making it specific to NP+VP (see Normalize...)
 		public static string TranslateSpanishToEnglish(RemoteWebDriver driver, string termToSearch) {
 
 			var translateUrl = "http://www.spanishdict.com/translate/" + Uri.EscapeDataString (termToSearch);
@@ -80,11 +81,18 @@ namespace cardscrape
 			return definition;
 		}
 
+		//  The normalization behavior really only makes sense for NP+VP type phrases
 		private static string NormalizeString(string input) {
 			var result = input.Trim ().ToLowerInvariant ();
 
+			// Make the initial "I" uppercase again
 			if (result.StartsWith ("i "))
 				result = "I " + result.Substring (2);
+
+			//  Trim initial "and " which google translate sometimes includes an initial "and"
+			//  For example, "tú atraviesas" is translated as "and you go through"
+			if (result.StartsWith ("and "))
+				result = result.Substring (4);
 
 			return result;
 		}
