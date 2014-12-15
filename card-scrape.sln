@@ -3,12 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "card-scrape", "card-scrape\card-scrape.csproj", "{F498B76F-C7F8-4770-8B58-361AA4DB53A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "card-scrape-test", "card-scrape-test\card-scrape-test.csproj", "{EBCEE1F8-7C41-4A8A-AF3D-1C7E2D46BEC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBCEE1F8-7C41-4A8A-AF3D-1C7E2D46BEC8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EBCEE1F8-7C41-4A8A-AF3D-1C7E2D46BEC8}.Debug|x86.Build.0 = Debug|Any CPU
+		{EBCEE1F8-7C41-4A8A-AF3D-1C7E2D46BEC8}.Release|x86.ActiveCfg = Release|Any CPU
+		{EBCEE1F8-7C41-4A8A-AF3D-1C7E2D46BEC8}.Release|x86.Build.0 = Release|Any CPU
 		{F498B76F-C7F8-4770-8B58-361AA4DB53A2}.Debug|x86.ActiveCfg = Debug|x86
 		{F498B76F-C7F8-4770-8B58-361AA4DB53A2}.Debug|x86.Build.0 = Debug|x86
 		{F498B76F-C7F8-4770-8B58-361AA4DB53A2}.Release|x86.ActiveCfg = Release|x86
