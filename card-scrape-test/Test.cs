@@ -8,14 +8,26 @@ namespace cardscrapetest
 	[TestFixture ()]
 	public class Test
 	{
-		[Test ()]
-		public void CanTranslateEllosPonen ()
-		{
-			using (var driver = new ChromeDriver ()) {
-				var result = TranslateUtils.TranslateSpanishToEnglish (driver, "ellos ponen");
+		ChromeDriver driver;
 
-				Assert.AreEqual ("they put", result);
-			}
+		[TestFixtureSetUp]
+		public void Setup() {
+			driver = new ChromeDriver ();
+		}
+
+		[TestFixtureTearDown]
+		public void TearDown() {
+			driver.Dispose ();
+		}
+			
+		[Test ()]
+		[TestCase("yo pongo", "I put")]
+		[TestCase("ellos ponen", "they put")]
+		public void CanTranslateEllosPonen (string input, string expectedOutput)
+		{
+			var result = TranslateUtils.TranslateSpanishToEnglish (driver, input);
+
+			Assert.AreEqual (expectedOutput, result);
 		}
 	}
 }

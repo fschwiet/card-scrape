@@ -34,6 +34,11 @@ namespace cardscrape
 				var externalEngineResults = driver.FindElementsByCssSelector(".mt-info .mt-info-text");
 				if (externalEngineResults.Any()) {
 
+					// make sure all results have had a chance to load
+					while(externalEngineResults.Count() < 3) {
+						externalEngineResults = driver.FindElementsByCssSelector(".mt-info .mt-info-text");
+					}
+
 					Dictionary<string,double> scores = new Dictionary<string, double>();
 
 					foreach(var result in externalEngineResults.Select(e => NormalizeString(e.Text))) {
