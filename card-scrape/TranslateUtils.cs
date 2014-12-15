@@ -56,6 +56,12 @@ namespace cardscrape
 						scores[NormalizeString(element.Text)] += 0.1;
 					}
 
+					//  Give Google Translate half a vote
+					var googleTranslation = GetGoogleTranslation(driver, termToSearch);
+
+					if (scores.ContainsKey(googleTranslation))
+						scores[googleTranslation] += 0.5;
+
 					definition = scores.OrderByDescending(kvp => kvp.Value).Select(kvp => kvp.Key).First();
 				}
 				else {
@@ -75,7 +81,29 @@ namespace cardscrape
 		}
 
 		private static string NormalizeString(string input) {
-			return input.Trim ().ToLowerInvariant ();
+			var result = input.Trim ().ToLowerInvariant ();
+
+			if (result.StartsWith ("i "))
+				result = "I " + result.Substring (2);
+
+			return result;
+		}
+
+		private static string GetGoogleTranslation(RemoteWebDriver driver, string input) {
+		
+			driver.Navigate ().GoToUrl ("https://translate.google.com/#es/en/" + Uri.EscapeDataString (input));
+
+			string result = null;
+
+			do {
+				if (result != null) {
+					System.Threading.Thread.Sleep(200);
+				}
+
+				result = driver.FindElementByCssSelector ("#result_box").Text;
+			} while(result.Contains("..."));
+
+			return NormalizeString (result);
 		}
 	}
 }
