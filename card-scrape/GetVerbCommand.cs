@@ -69,14 +69,27 @@ namespace cardscrape
 				foreach (var inputVerb in Verbs) {
 
 					List<Result> results = null;
-					try {
-						results = LookupResults (driver, inputVerb);
 
-					} catch(ManyConsole.ConsoleHelpAsException exception) {
+					while (true) {
 
-						Console.WriteLine(exception.ToString());
+						var retriesLeft = 3;
 
-						return 1; 
+						try {
+							results = LookupResults (driver, inputVerb);
+							break;
+						} 
+						catch(ManyConsole.ConsoleHelpAsException) {
+							//  Don't retry these errors
+							throw;
+						}
+						catch(Exception e) {
+							if (retriesLeft-- == 0) {
+								throw;
+							}
+
+							Console.Error.WriteLine ("Retrying: " + inputVerb.Verb);
+							Console.Error.WriteLine ("Exception was: " + e.Message);
+						}
 					}
 
 					using (var csvWriter = new CsvHelper.CsvWriter (Console.Out))
