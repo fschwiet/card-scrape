@@ -67,98 +67,16 @@ namespace cardscrape
 				driver.Manage ().Timeouts ().ImplicitlyWait (TranslateUtils.LongWait);
 
 				foreach (var inputVerb in Verbs) {
-				
-					driver.Navigate ().GoToUrl ("http://www.spanishdict.com/translate/" + inputVerb.Verb);
 
-					var infinitiveRranslationDiv = driver.FindElementsByCssSelector (".card .quickdef .lang").FirstOrDefault ();
-					var conjugateLink = driver.FindElementsByCssSelector (".card a[href^='http://www.spanishdict.com/conjugate']").FirstOrDefault ();
+					List<Result> results = null;
+					try {
+						results = LookupResults (driver, inputVerb);
 
-					if (infinitiveRranslationDiv == null) {
-						Console.WriteLine ("Unable to find translation of '" + inputVerb.Verb + "'.");
-						return 1;
-					}
+					} catch(ManyConsole.ConsoleHelpAsException exception) {
 
-					if (conjugateLink == null) {
-						Console.WriteLine ("Is '" + inputVerb.Verb + "' a verb?  Unable to find conjugation link.");
-						return 1;
-					}
+						Console.WriteLine(exception.ToString());
 
-					// for some undetermined reason conjugateLink is reported as not visible for verb 'ir'
-					// so we can't just conjugateLink.Click (), instead we use javascript
-					driver.ExecuteScript ("arguments[0].click();", conjugateLink);
-
-					var term = driver.FindElementByCssSelector (".card .quickdef .source-text").Text.Trim ();
-					var infinitiveTranslation = driver.FindElementByCssSelector (".card .quickdef .lang").Text.Trim ();
-
-					if (inputVerb.ExtraInfo != null) {
-						infinitiveTranslation = infinitiveTranslation + " " + inputVerb.ExtraInfo;
-					}
-
-					if (term.ToLowerInvariant () != inputVerb.Verb.ToLower ()) {
-						Console.WriteLine ("The verb provided '" + inputVerb.Verb + "' does not match the base form found '" + term + "'.  Please use the base form.");
-						return 1;
-					}
-
-					foreach (var vtableLabel in driver.FindElementsByCssSelector ("a.vtable-label")) {
-						var vtableType = vtableLabel.Text.Trim ().ToLower ().Replace (" ", "-");
-						driver.ExecuteScript ("arguments[0].classList.add('vtable-label-" + vtableType + "');", vtableLabel);
-					}
-					
-					var infinitiveResult = new Result () {
-						Term = term,
-						TermDefinition = infinitiveTranslation
-					};
-
-					List<Result> results = new List<Result> ();
-
-					results.Add (infinitiveResult);
-
-					var indicativeTable = driver.FindElementByCssSelector (".vtable-label-indicative + .vtable-wrapper");
-
-					var columnNames = indicativeTable.FindElements (By.CssSelector ("tr:first-child td")).Select (e => e.Text.ToLower ()).Skip (1).ToArray ();
-					var rowNames = indicativeTable.FindElements (By.CssSelector ("tr td:first-child")).Select (e => e.Text.ToLower ()).Skip (1).ToArray ();
-
-					for (var column = 0; column < columnNames.Length; column++) {
-
-						if (!TensesToInclude.Contains (columnNames [column]))
-							continue;
-
-						for (var row = 0; row < rowNames.Length; row++) {
-
-							var selector = "tr:nth-child(" + (row + 2) + ") td:nth-child(" + (column + 2) + ")";
-							var value = indicativeTable.FindElement (By.CssSelector (selector)).Text.Trim ().ToLower ();
-
-							var identifier = String.Join (",", new [] {
-								term,
-								columnNames [column],
-								rowNames [row],
-							});
-
-							var nounPhrase = rowNames [row].Split ('/').First ();
-
-							if (NounsToSkip.Contains (nounPhrase)) {
-								continue;
-							}
-
-							var result = new Result () {
-								TermConjugationIdentifier = identifier,
-								InfinitiveForm = term,
-								InfinitiveDefinition = infinitiveTranslation,
-								Term = value,
-								DeambiguatingNounphrase = nounPhrase
-							};
-
-							results.Add (result);
-						}
-								
-						foreach (var result in results.Where(r => r.TermDefinition == null)) {
-
-							result.TermDefinition = TranslateUtils.TranslateSpanishToEnglish (driver, result.DeambiguatingNounphrase + " " + result.Term);
-						
-							if (inputVerb.ExtraInfo != null) {
-								result.TermDefinition = result.TermDefinition + " " + inputVerb.ExtraInfo;
-							}
-						}
+						return 1; 
 					}
 
 					using (var csvWriter = new CsvHelper.CsvWriter (Console.Out))
@@ -176,6 +94,101 @@ namespace cardscrape
 			}
 
 			return 0;
+		}
+
+		private List<Result> LookupResults(RemoteWebDriver driver, InputVerb inputVerb) {
+		
+			driver.Navigate ().GoToUrl ("http://www.spanishdict.com/translate/" + inputVerb.Verb);
+
+			var infinitiveRranslationDiv = driver.FindElementsByCssSelector (".card .quickdef .lang").FirstOrDefault ();
+			var conjugateLink = driver.FindElementsByCssSelector (".card a[href^='http://www.spanishdict.com/conjugate']").FirstOrDefault ();
+
+			if (infinitiveRranslationDiv == null) {
+				throw new ConsoleHelpAsException ("Unable to find translation of '" + inputVerb.Verb + "'.");
+			}
+
+			if (conjugateLink == null) {
+				throw new ConsoleHelpAsException ("Is '" + inputVerb.Verb + "' a verb?  Unable to find conjugation link.");
+			}
+
+			// for some undetermined reason conjugateLink is reported as not visible for verb 'ir'
+			// so we can't just conjugateLink.Click (), instead we use javascript
+			driver.ExecuteScript ("arguments[0].click();", conjugateLink);
+
+			var term = driver.FindElementByCssSelector (".card .quickdef .source-text").Text.Trim ();
+			var infinitiveTranslation = driver.FindElementByCssSelector (".card .quickdef .lang").Text.Trim ();
+
+			if (inputVerb.ExtraInfo != null) {
+				infinitiveTranslation = infinitiveTranslation + " " + inputVerb.ExtraInfo;
+			}
+
+			if (term.ToLowerInvariant () != inputVerb.Verb.ToLower ()) {
+				throw new ConsoleHelpAsException ("The verb provided '" + inputVerb.Verb + "' does not match the base form found '" + term + "'.  Please use the base form.");
+			}
+
+			foreach (var vtableLabel in driver.FindElementsByCssSelector ("a.vtable-label")) {
+				var vtableType = vtableLabel.Text.Trim ().ToLower ().Replace (" ", "-");
+				driver.ExecuteScript ("arguments[0].classList.add('vtable-label-" + vtableType + "');", vtableLabel);
+			}
+
+			var infinitiveResult = new Result () {
+				Term = term,
+				TermDefinition = infinitiveTranslation
+			};
+
+			List<Result> results = new List<Result> ();
+
+			results.Add (infinitiveResult);
+
+			var indicativeTable = driver.FindElementByCssSelector (".vtable-label-indicative + .vtable-wrapper");
+
+			var columnNames = indicativeTable.FindElements (By.CssSelector ("tr:first-child td")).Select (e => e.Text.ToLower ()).Skip (1).ToArray ();
+			var rowNames = indicativeTable.FindElements (By.CssSelector ("tr td:first-child")).Select (e => e.Text.ToLower ()).Skip (1).ToArray ();
+
+			for (var column = 0; column < columnNames.Length; column++) {
+
+				if (!TensesToInclude.Contains (columnNames [column]))
+					continue;
+
+				for (var row = 0; row < rowNames.Length; row++) {
+
+					var selector = "tr:nth-child(" + (row + 2) + ") td:nth-child(" + (column + 2) + ")";
+					var value = indicativeTable.FindElement (By.CssSelector (selector)).Text.Trim ().ToLower ();
+
+					var identifier = String.Join (",", new [] {
+						term,
+						columnNames [column],
+						rowNames [row],
+					});
+
+					var nounPhrase = rowNames [row].Split ('/').First ();
+
+					if (NounsToSkip.Contains (nounPhrase)) {
+						continue;
+					}
+
+					var result = new Result () {
+						TermConjugationIdentifier = identifier,
+						InfinitiveForm = term,
+						InfinitiveDefinition = infinitiveTranslation,
+						Term = value,
+						DeambiguatingNounphrase = nounPhrase
+					};
+
+					results.Add (result);
+				}
+
+				foreach (var result in results.Where(r => r.TermDefinition == null)) {
+
+					result.TermDefinition = TranslateUtils.TranslateSpanishToEnglish (driver, result.DeambiguatingNounphrase + " " + result.Term);
+
+					if (inputVerb.ExtraInfo != null) {
+						result.TermDefinition = result.TermDefinition + " " + inputVerb.ExtraInfo;
+					}
+				}
+			}
+
+			return results;
 		}
 	}
 }
