@@ -88,7 +88,7 @@ namespace cardscrape
 						}
 
 						driver.Close ();
-						driver = new ChromeDriver ();
+						driver = new ChromeDriver (service, options);
 
 						Console.Error.WriteLine ("Retrying: " + inputVerb.Verb);
 						Console.Error.WriteLine ("Exception was: " + e.Message);
