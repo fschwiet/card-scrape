@@ -124,7 +124,7 @@ namespace cardscrape
 				throw new ConsoleHelpAsException ("Unable to find translation of '" + inputVerb.Verb + "'.");
 			}
 
-			string infinitiveTranslation = infinitiveTranslationDiv.Text;
+			string infinitiveTranslation = infinitiveTranslationDiv.Text.Trim();
 
 			if (conjugateLink == null) {
 				throw new ConsoleHelpAsException ("Is '" + inputVerb.Verb + "' a verb?  Unable to find conjugation link.");
@@ -142,7 +142,7 @@ namespace cardscrape
 			infinitiveTranslationDiv = driver.FindElementsByCssSelector (".card .quickdef .lang").FirstOrDefault();
 
 			if (infinitiveTranslationDiv != null)
-				infinitiveTranslation = infinitiveTranslationDiv.Text;
+				infinitiveTranslation = infinitiveTranslationDiv.Text.Trim();
 			
 			driver.Manage ().Timeouts ().ImplicitlyWait (TranslateUtils.LongWait);
 
@@ -170,8 +170,8 @@ namespace cardscrape
 
 			var indicativeTable = driver.FindElementByCssSelector (".vtable-label-indicative + .vtable-wrapper");
 
-			var columnNames = indicativeTable.FindElements (By.CssSelector ("tr:first-child td")).Select (e => e.Text.ToLower ()).Skip (1).ToArray ();
-			var rowNames = indicativeTable.FindElements (By.CssSelector ("tr td:first-child")).Select (e => e.Text.ToLower ()).Skip (1).ToArray ();
+			var columnNames = indicativeTable.FindElements (By.CssSelector ("tr:first-child td")).Select (e => e.Text.Trim().ToLower ()).Skip (1).ToArray ();
+			var rowNames = indicativeTable.FindElements (By.CssSelector ("tr td:first-child")).Select (e => e.Text.Trim().ToLower ()).Skip (1).ToArray ();
 
 			for (var column = 0; column < columnNames.Length; column++) {
 
