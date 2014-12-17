@@ -26,6 +26,7 @@ namespace cardscrapetest
 		[TestCase("ellos queman", "they burn")]
 		[TestCase("él goza", "he enjoys")]
 		[TestCase("tú atraviesas", "you go through")]
+		[TestCase("tú produces", "you produce")]
 		public void CanTranslate (string input, string expectedOutput)
 		{
 			var result = TranslateUtils.TranslateSpanishToEnglish (driver, input);

@@ -16,6 +16,7 @@ namespace cardscrape
 
 			var translateUrl = "http://www.spanishdict.com/translate/" + Uri.EscapeDataString (termToSearch);
 			driver.Navigate ().GoToUrl (translateUrl);
+			driver.FindElementById ("mt-to-en").Click ();
 
 			string definition = null;
 
@@ -26,18 +27,18 @@ namespace cardscrape
 				//  First we do a long search to be sure the page has had time to load whatever
 				//  element we might be looking for, this search should still be fast as typically
 				//  we find something.
-				driver.FindElementsByCssSelector(".mt-info.promt .mt-info-text, .quickdef .el");  // the selector is anything we can use
+				driver.FindElementsByCssSelector("#mt-en .mt-info.promt .mt-info-text, .quickdef .el");  // the selector is anything we can use
 
 				//  Now we use the shorter timeout for the case where elements.Any() is typically
 				//  false (as WebDriver will wait for the full time)
 				driver.Manage().Timeouts().ImplicitlyWait(ShortWait);
 
-				var externalEngineResults = driver.FindElementsByCssSelector(".mt-info .mt-info-text");
+				var externalEngineResults = driver.FindElementsByCssSelector("#mt-en .mt-info .mt-info-text");
 				if (externalEngineResults.Any()) {
 
 					// make sure all results have had a chance to load
 					while(externalEngineResults.Count() < 3) {
-						externalEngineResults = driver.FindElementsByCssSelector(".mt-info .mt-info-text");
+						externalEngineResults = driver.FindElementsByCssSelector("#mt-en .mt-info .mt-info-text");
 					}
 
 					Dictionary<string,double> scores = new Dictionary<string, double>();
@@ -52,7 +53,7 @@ namespace cardscrape
 					}
 
 					//  Give a slight preference to the PROMT result
-					foreach(var element in driver.FindElementsByCssSelector(".mt-info.promt .mt-info-text")) {
+					foreach(var element in driver.FindElementsByCssSelector("#mt-en .mt-info.promt .mt-info-text")) {
 
 						scores[NormalizeString(element.Text)] += 0.1;
 					}
