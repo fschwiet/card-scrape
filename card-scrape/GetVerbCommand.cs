@@ -62,48 +62,50 @@ namespace cardscrape
 			var service = ChromeDriverService.CreateDefaultService();
 			service.SuppressInitialDiagnosticInformation = true;
 
-			using (var driver = new ChromeDriver (service, options)) {
+			var driver = new ChromeDriver (service, options);
 
-				driver.Manage ().Timeouts ().ImplicitlyWait (TranslateUtils.LongWait);
+			driver.Manage ().Timeouts ().ImplicitlyWait (TranslateUtils.LongWait);
 
-				foreach (var inputVerb in Verbs) {
+			foreach (var inputVerb in Verbs) {
 
-					List<Result> results = null;
+				List<Result> results = null;
 
-					var retriesLeft = 3;
+				var retriesLeft = 3;
 
-					while (true) {
-					
-						try {
-							results = LookupResults (driver, inputVerb);
-							break;
-						} 
-						catch(ManyConsole.ConsoleHelpAsException) {
-							//  Don't retry these errors
+				while (true) {
+				
+					try {
+						results = LookupResults (driver, inputVerb);
+						break;
+					} 
+					catch(ManyConsole.ConsoleHelpAsException) {
+						//  Don't retry these errors
+						throw;
+					}
+					catch(Exception e) {
+						if (retriesLeft-- == 0) {
 							throw;
 						}
-						catch(Exception e) {
-							if (retriesLeft-- == 0) {
-								throw;
-							}
 
-							Console.Error.WriteLine ("Retrying: " + inputVerb.Verb);
-							Console.Error.WriteLine ("Exception was: " + e.Message);
-						}
+						driver.Close ();
+						driver = new ChromeDriver ();
+
+						Console.Error.WriteLine ("Retrying: " + inputVerb.Verb);
+						Console.Error.WriteLine ("Exception was: " + e.Message);
 					}
-
-					using (var csvWriter = new CsvHelper.CsvWriter (Console.Out))
-						foreach (var result in results) {
-							csvWriter.WriteField (result.Term);
-							csvWriter.WriteField (result.TermDefinition);
-							if (result.InfinitiveForm != null) {
-								csvWriter.WriteField (result.InfinitiveForm + " - " + result.InfinitiveDefinition);
-							} else {
-								csvWriter.WriteField ("");
-							}
-							csvWriter.NextRecord ();
-						}
 				}
+
+				using (var csvWriter = new CsvHelper.CsvWriter (Console.Out))
+					foreach (var result in results) {
+						csvWriter.WriteField (result.Term);
+						csvWriter.WriteField (result.TermDefinition);
+						if (result.InfinitiveForm != null) {
+							csvWriter.WriteField (result.InfinitiveForm + " - " + result.InfinitiveDefinition);
+						} else {
+							csvWriter.WriteField ("");
+						}
+						csvWriter.NextRecord ();
+					}
 			}
 
 			return 0;
