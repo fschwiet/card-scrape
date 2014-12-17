@@ -108,6 +108,8 @@ namespace cardscrape
 					}
 			}
 
+			driver.Close ();
+
 			return 0;
 		}
 
