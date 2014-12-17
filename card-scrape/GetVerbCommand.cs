@@ -117,12 +117,14 @@ namespace cardscrape
 		
 			driver.Navigate ().GoToUrl ("http://www.spanishdict.com/translate/" + inputVerb.Verb);
 
-			var infinitiveRranslationDiv = driver.FindElementsByCssSelector (".card .quickdef .lang").FirstOrDefault ();
+			var infinitiveTranslationDiv = driver.FindElementsByCssSelector (".card .quickdef .lang").FirstOrDefault ();
 			var conjugateLink = driver.FindElementsByCssSelector (".card a[href^='http://www.spanishdict.com/conjugate']").FirstOrDefault ();
 
-			if (infinitiveRranslationDiv == null) {
+			if (infinitiveTranslationDiv == null) {
 				throw new ConsoleHelpAsException ("Unable to find translation of '" + inputVerb.Verb + "'.");
 			}
+
+			string infinitiveTranslation = infinitiveTranslationDiv.Text;
 
 			if (conjugateLink == null) {
 				throw new ConsoleHelpAsException ("Is '" + inputVerb.Verb + "' a verb?  Unable to find conjugation link.");
@@ -133,7 +135,16 @@ namespace cardscrape
 			driver.ExecuteScript ("arguments[0].click();", conjugateLink);
 
 			var term = driver.FindElementByCssSelector (".card .quickdef .source-text").Text.Trim ();
-			var infinitiveTranslation = driver.FindElementByCssSelector (".card .quickdef .lang").Text.Trim ();
+
+			driver.Manage ().Timeouts ().ImplicitlyWait (TranslateUtils.ShortWait);
+
+			//  I forget why we prefer the translation on the conjugatio page...
+			infinitiveTranslationDiv = driver.FindElementsByCssSelector (".card .quickdef .lang").FirstOrDefault();
+
+			if (infinitiveTranslationDiv != null)
+				infinitiveTranslation = infinitiveTranslationDiv.Text;
+			
+			driver.Manage ().Timeouts ().ImplicitlyWait (TranslateUtils.LongWait);
 
 			if (inputVerb.ExtraInfo != null) {
 				infinitiveTranslation = infinitiveTranslation + " " + inputVerb.ExtraInfo;
