@@ -16,7 +16,11 @@ namespace cardscrape
 
 			var translateUrl = "http://www.spanishdict.com/translate/" + Uri.EscapeDataString (termToSearch);
 			driver.Navigate ().GoToUrl (translateUrl);
-			driver.FindElementById ("mt-to-en").Click ();
+
+			var translationPageTypeDisambiguator = driver.FindElementByCssSelector (".quickdef, .lang-tabs");
+
+			if (translationPageTypeDisambiguator.GetAttribute("class").Contains("lang-tabs"))
+				driver.FindElementById ("mt-to-en").Click ();
 
 			string definition = null;
 
