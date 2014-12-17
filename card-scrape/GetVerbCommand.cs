@@ -70,10 +70,10 @@ namespace cardscrape
 
 					List<Result> results = null;
 
+					var retriesLeft = 3;
+
 					while (true) {
-
-						var retriesLeft = 3;
-
+					
 						try {
 							results = LookupResults (driver, inputVerb);
 							break;
