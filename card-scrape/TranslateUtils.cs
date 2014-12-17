@@ -49,7 +49,7 @@ namespace cardscrape
 							scores[result] = 0;
 						}
 
-						scores[result] += 1;
+						scores[result] += CheckPrefix(termToSearch, result) ? 1 : 0;
 					}
 
 					//  Give a slight preference to the PROMT result
@@ -90,12 +90,30 @@ namespace cardscrape
 			if (result.StartsWith ("i "))
 				result = "I " + result.Substring (2);
 
+			if (result.StartsWith ("he(it) "))
+				result = "he " + result.Substring ("he(it) ".Length);
+
 			//  Trim initial "and " which google translate sometimes includes an initial "and"
 			//  For example, "tú atraviesas" is translated as "and you go through"
 			if (result.StartsWith ("and "))
 				result = result.Substring (4);
 
 			return result;
+		}
+
+		private static Dictionary<string,string> prefixMap = new Dictionary<string, string>() {
+			{"yo", "I "},
+			{"tú", "you "},
+			{"él", "he "},
+			{"nosotros", "we "},
+			{"ellos", "they "}
+		};
+
+		private static bool CheckPrefix(string originalPhrase, string translatedPhrase) {
+		
+			var expectedPrefix = prefixMap [originalPhrase.Split (' ') [0]];
+
+			return translatedPhrase.StartsWith (expectedPrefix);
 		}
 
 		private static string GetGoogleTranslation(RemoteWebDriver driver, string input) {
