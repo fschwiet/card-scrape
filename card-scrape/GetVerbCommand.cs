@@ -78,10 +78,6 @@ namespace cardscrape
 						results = LookupResults (driver, inputVerb);
 						break;
 					} 
-					catch(ManyConsole.ConsoleHelpAsException) {
-						//  Don't retry these errors
-						throw;
-					}
 					catch(Exception e) {
 						if (retriesLeft-- == 0) {
 							throw;
