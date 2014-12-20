@@ -44,7 +44,6 @@ componer
 comprender; (comprehensively)
 conducir
 conjugar; (and make compatible)
-conocer
 conseguir
 construir
 contener
@@ -169,7 +168,6 @@ retener
 revisar
 reír
 romper
-saber
 sacar
 sacudir
 salir
