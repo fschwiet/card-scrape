@@ -2,7 +2,9 @@
 asolear
 fingir
 quejarse
+caerse
 reverdecer
+sentarse
 
 
 devuelves - you are sick

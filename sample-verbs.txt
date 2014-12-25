@@ -2,13 +2,20 @@ ser; (permanently)
 estar; (temporarily)
 ir
 
+abatir
+abrasar
+abrazar
 abrir
 aburrir
+absolver
+acabar
+aceptar
 acosar
 acostar
 afeitar
 agradecer
 agregar
+alcanzar
 almorzar
 amar
 apagar
@@ -16,18 +23,23 @@ aparecer
 aplaudir
 arrebatar
 atravesar; (through)
+ayudar
 bajar
 barrer
 bañar
 beber
 besar
 borrar
-burlar
+bromear
+burlar; (deceptively)
+buscar
 caber
 caer
 calentar
 cambiar
+cancelar
 cansar
+cantar
 casar
 cenar
 cepillar
@@ -36,7 +48,7 @@ circular
 cobrar
 cocinar
 coger
-comenzar
+comenzar; (commence)
 comer
 compartir
 complacer
@@ -44,23 +56,33 @@ componer
 comprender; (comprehensively)
 conducir
 conjugar; (and make compatible)
+conocer; (a person, place, or thing)
 conseguir
+considerar
 construir
+contar
 contener
 contestar
 convencer
 conversar
+convertir
 cooperar
 corregir
 correr
 cortar
+crear
 crecer
+creer
 cruzar
 cubrir
 cuidar
+cumplir
 dar
+deber
 decidir
 decir
+dejar
+deletrear
 depilar
 descansar
 descubrir
@@ -69,6 +91,7 @@ despedir
 despertar
 destruir
 detener
+detestar
 devolver
 dibujar
 dirigir
@@ -80,25 +103,39 @@ divertir
 dormir
 dudar
 elegir; (from some options, used more for elections instead of escoger)
-empezar
+empezar; (start)
 encantar
 encoger
+encontrar
 enojar
 enseñar
 entender
+entrar
+enviar
+esperar
 equivocar
 escoger; (from some options)
 escribir
 escuchar
 establecer
 estirar
+estudiar
 exigir
+existir
+explicar
 extinguir
 faltar
 fijar
+firmar
+formar
 freír
+fumar
 fundar
+ganar
+girar
 gozar
+gustar
+hablar
 hacer
 hervir
 huir
@@ -107,41 +144,62 @@ incluir
 insistir
 intentar
 invertir
+jugar
 lastimar
 lavar
 leer
 levantar
 limpiar
+llamar
 llegar
+llenar
 llevar
+llover
+lograr
+malgastar
 mandar
 mantener
 mentir
 merecer
 meter; (inside)
+mirar
 mojar
 morder
 morir
 mostrar
 nacer
+necesitar
 obtener
+occurir
+odiar
 ofender
 ofrecer
 oler
+olvidar
 oír
+organizar
 padecer
+pagar
+paracer
 parar
+partir
+pasar
 pedir
+peinar
 pensar
 perder
 permanecer
+permitir
 pertenecer
 pintar
+planchar
 poder
 poner
+preguntar
 prender
 preocupar
 preparar
+presentar
 prestar
 probar
 producir
@@ -152,6 +210,7 @@ quedar
 quemar
 querer
 quitar
+realizar
 recibir
 recoger
 reconocer
@@ -159,15 +218,18 @@ recordar
 regalar; (permanently)
 regresar
 rehacer
+reparar
 repartir
 repetir
 reponer
 resolver
 responder
+resultar
 retener
 revisar
 reír
 romper
+saber; (a fact, skill, or to know something thoroughly)
 sacar
 sacudir
 salir
@@ -181,6 +243,7 @@ sorprender
 sostener
 soñar
 subir
+sudar
 sufrir
 sugerir
 sumar
@@ -191,11 +254,16 @@ temblar
 temer
 tener
 terminar
+tomar
 tocar
 torcer
+toser
 trabajar
 traducir
 traer
+tratar
+usar
+utilizar
 vacilar
 valer
 vencer
@@ -205,4 +273,5 @@ ver
 vestir
 vivir
 volar
+volver
 
