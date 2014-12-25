@@ -34,10 +34,13 @@ namespace cardscrape
 			"present"
 		};
 
+		public bool ShouldValidateOnly = false;
+
 		public GetVerbCommand ()
 		{
 			this.IsCommand ("get-verb", "Generates notes for a Spanish verb");
 			this.HasAdditionalArguments (null, " <verb|filename>+ where filename is a file containing a list of verbs");
+			this.HasOption ("validate", "Only validate the input verbs", v => ShouldValidateOnly = true);
 			this.SkipsCommandSummaryBeforeRunning ();
 		}
 
@@ -76,7 +79,7 @@ namespace cardscrape
 				while (true) {
 				
 					try {
-						results = LookupResults (driver, inputVerb);
+						results = LookupResults (driver, inputVerb, ShouldValidateOnly);
 						break;
 					} 
 					catch(Exception e) {
@@ -114,7 +117,7 @@ namespace cardscrape
 			return 0;
 		}
 
-		private List<Result> LookupResults(RemoteWebDriver driver, InputVerb inputVerb) {
+		private List<Result> LookupResults(RemoteWebDriver driver, InputVerb inputVerb, bool validateOnly) {
 		
 			driver.Navigate ().GoToUrl ("http://www.spanishdict.com/translate/" + inputVerb.Verb);
 
@@ -154,6 +157,9 @@ namespace cardscrape
 			if (term.ToLowerInvariant () != inputVerb.Verb.ToLower ()) {
 				throw new ConsoleHelpAsException ("The verb provided '" + inputVerb.Verb + "' does not match the base form found '" + term + "'.  Please use the base form.");
 			}
+
+			if (validateOnly)
+				return new List<Result> ();
 
 			foreach (var vtableLabel in driver.FindElementsByCssSelector ("a.vtable-label")) {
 				var vtableType = vtableLabel.Text.Trim ().ToLower ().Replace (" ", "-");
