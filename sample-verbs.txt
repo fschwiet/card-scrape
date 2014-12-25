@@ -6,8 +6,8 @@ abatir
 abrasar
 abrazar
 abrir
-aburrir
 absolver
+aburrir
 acabar
 aceptar
 acosar
@@ -112,11 +112,11 @@ enseñar
 entender
 entrar
 enviar
-esperar
 equivocar
 escoger; (from some options)
 escribir
 escuchar
+esperar
 establecer
 estirar
 estudiar
@@ -176,8 +176,8 @@ ofender
 ofrecer
 oler
 olvidar
-oír
 organizar
+oír
 padecer
 pagar
 paracer
@@ -254,8 +254,8 @@ temblar
 temer
 tener
 terminar
-tomar
 tocar
+tomar
 torcer
 toser
 trabajar
