@@ -23,6 +23,7 @@ namespace cardscrape
 			public string TermDefinition;
 			public string InfinitiveForm;
 			public string InfinitiveDefinition;
+			public string ConjugationType;
 		}
 
 		public List<InputVerb> Verbs = new List<InputVerb>();
@@ -95,11 +96,15 @@ namespace cardscrape
 					foreach (var result in results) {
 						csvWriter.WriteField (result.Term);
 						csvWriter.WriteField (result.TermDefinition);
+						var tags = result.ConjugationType + " ";
 						if (result.InfinitiveForm != null) {
 							csvWriter.WriteField (result.InfinitiveForm + " - " + result.InfinitiveDefinition);
+							tags = tags + "infinitive:" + result.InfinitiveForm;
 						} else {
 							csvWriter.WriteField ("");
+							tags = tags + "infinitive:" + result.Term;
 						}
+						csvWriter.WriteField (tags);
 						csvWriter.NextRecord ();
 					}
 			}
@@ -157,7 +162,8 @@ namespace cardscrape
 
 			var infinitiveResult = new Result () {
 				Term = term,
-				TermDefinition = infinitiveTranslation
+				TermDefinition = infinitiveTranslation,
+				ConjugationType = "conjugation:infinitive"
 			};
 
 			List<Result> results = new List<Result> ();
@@ -196,7 +202,8 @@ namespace cardscrape
 						InfinitiveForm = term,
 						InfinitiveDefinition = infinitiveTranslation,
 						Term = value,
-						DeambiguatingNounphrase = nounPhrase
+						DeambiguatingNounphrase = nounPhrase,
+						ConjugationType = "conjugation:indicative-" + columnNames [column].ToLower()
 					};
 
 					results.Add (result);
