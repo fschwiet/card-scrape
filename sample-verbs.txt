@@ -170,7 +170,7 @@ mostrar
 nacer
 necesitar
 obtener
-occurir
+ocurrir
 odiar
 ofender
 ofrecer
@@ -180,7 +180,7 @@ organizar
 oír
 padecer
 pagar
-paracer
+parecer
 parar
 partir
 pasar
