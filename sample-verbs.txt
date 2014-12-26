@@ -10,19 +10,24 @@ absolver
 aburrir
 acabar
 aceptar
+acertar
 acosar
 acostar
+advertir
 afeitar
 agradecer
 agregar
+ahogar
 alcanzar
 almorzar
 amar
 apagar
 aparecer
 aplaudir
+aprobar
 arrebatar
 atravesar; (through)
+atribuir
 ayudar
 bajar
 barrer
@@ -48,14 +53,18 @@ circular
 cobrar
 cocinar
 coger
+colgar
 comenzar; (commence)
 comer
 compartir
 complacer
 componer
 comprender; (comprehensively)
+concluir
 conducir
+confesar
 conjugar; (and make compatible)
+conmover; (emotionally)
 conocer; (a person, place, or thing)
 conseguir
 considerar
@@ -63,6 +72,7 @@ construir
 contar
 contener
 contestar
+contribuir
 convencer
 conversar
 convertir
@@ -81,10 +91,13 @@ dar
 deber
 decidir
 decir
+defender
 dejar
 deletrear
+demostrar
 depilar
 descansar
+descender
 descubrir
 deshacer
 despedir
@@ -99,12 +112,16 @@ discutir
 disponer
 distinguir
 distraer
+distribuir
 divertir
+doler
 dormir
 dudar
 elegir; (from some options, used more for elections instead of escoger)
 empezar; (start)
 encantar
+encender
+encerrar
 encoger
 encontrar
 enojar
@@ -128,19 +145,24 @@ faltar
 fijar
 firmar
 formar
+fregar
 freír
 fumar
 fundar
 ganar
 girar
+gobernar
 gozar
 gustar
 hablar
 hacer
+helar
 hervir
 huir
 hundir
+impedir
 incluir
+influir
 insistir
 intentar
 invertir
@@ -159,6 +181,7 @@ lograr
 malgastar
 mandar
 mantener
+medir
 mentir
 merecer
 meter; (inside)
@@ -167,8 +190,11 @@ mojar
 morder
 morir
 mostrar
+mover
 nacer
 necesitar
+negar
+nevar
 obtener
 ocurrir
 odiar
@@ -180,8 +206,8 @@ organizar
 oír
 padecer
 pagar
-parecer
 parar
+parecer
 partir
 pasar
 pedir
@@ -195,11 +221,13 @@ pintar
 planchar
 poder
 poner
+preferir
 preguntar
 prender
 preocupar
 preparar
 presentar
+presentir
 prestar
 probar
 producir
@@ -213,11 +241,13 @@ quitar
 realizar
 recibir
 recoger
+recomendar
 reconocer
 recordar
 regalar; (permanently)
 regresar
 rehacer
+remendar
 reparar
 repartir
 repetir
@@ -227,7 +257,9 @@ responder
 resultar
 retener
 revisar
+revolver
 reír
+rogar
 romper
 saber; (a fact, skill, or to know something thoroughly)
 sacar
@@ -239,6 +271,9 @@ sembrar
 sentar
 sentir
 servir
+soler
+sonar
+sonreír
 sorprender
 sostener
 soñar
@@ -249,6 +284,7 @@ sugerir
 sumar
 suponer
 suspender
+sustituir
 tejer
 temblar
 temer
@@ -262,6 +298,7 @@ trabajar
 traducir
 traer
 tratar
+tropezar
 usar
 utilizar
 vacilar
