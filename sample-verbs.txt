@@ -191,6 +191,7 @@ morder
 morir
 mostrar
 mover
+mudar
 nacer
 necesitar
 negar
