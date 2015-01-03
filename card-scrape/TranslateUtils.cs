@@ -41,7 +41,7 @@ namespace cardscrape
 				if (externalEngineResults.Any()) {
 
 					// make sure all results have had a chance to load
-					while(externalEngineResults.Count() < 3) {
+					while(externalEngineResults.Count() < 2) {
 						externalEngineResults = driver.FindElementsByCssSelector("#mt-en .mt-info .mt-info-text");
 					}
 
