@@ -30,9 +30,12 @@ namespace cardscrape
 		public string[] NounsToSkip = new [] {
 			"vosotros"
 		};
-		public string[] TensesToInclude = new [] { 
-			"present"
-		};
+		public List<RecognizedTenses> TensesToInclude = new List<RecognizedTenses>();
+
+		public enum RecognizedTenses {
+			present,
+			preterite
+		}
 
 		public bool ShouldValidateOnly = false;
 
@@ -41,7 +44,18 @@ namespace cardscrape
 			this.IsCommand ("get-verb", "Generates notes for a Spanish verb");
 			this.HasAdditionalArguments (null, " <verb|filename>+ where filename is a file containing a list of verbs");
 			this.HasOption ("validate", "Only validate the input verbs", v => ShouldValidateOnly = true);
+			this.HasOption<RecognizedTenses> ("tense=", 
+				"Include tense: " + String.Join (", ", Enum.GetNames (typeof(RecognizedTenses))), 
+				v => TensesToInclude.Add(v));
 			this.SkipsCommandSummaryBeforeRunning ();
+		}
+
+		public override int? OverrideAfterHandlingArgumentsBeforeRun (string[] remainingArguments)
+		{
+			if (!TensesToInclude.Any ())
+				TensesToInclude.Add(RecognizedTenses.present);
+
+			return base.OverrideAfterHandlingArgumentsBeforeRun (remainingArguments);
 		}
 
 		public override int Run (string[] remainingArguments)
@@ -183,7 +197,7 @@ namespace cardscrape
 
 			for (var column = 0; column < columnNames.Length; column++) {
 
-				if (!TensesToInclude.Contains (columnNames [column]))
+				if (!TensesToInclude.Any(c => c.ToString().Equals(columnNames [column], StringComparison.InvariantCultureIgnoreCase)))
 					continue;
 
 				for (var row = 0; row < rowNames.Length; row++) {
