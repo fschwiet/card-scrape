@@ -31,12 +31,11 @@ namespace cardscrape
 				//  First we do a long search to be sure the page has had time to load whatever
 				//  element we might be looking for, this search should still be fast as typically
 				//  we find something.
-				driver.FindElementsByCssSelector("#mt-en .mt-info.promt .mt-info-text, .quickdef .el");  // the selector is anything we can use
+				driver.FindElementsByCssSelector("#mt-en .mt-info-text, .quickdef .el");  // the selector is anything we can use
 
 				//  Now we use the shorter timeout for the case where elements.Any() is typically
 				//  false (as WebDriver will wait for the full time)
 				driver.Manage().Timeouts().ImplicitlyWait(ShortWait);
-
 				var externalEngineResults = driver.FindElementsByCssSelector("#mt-en .mt-info .mt-info-text");
 				if (externalEngineResults.Any()) {
 
