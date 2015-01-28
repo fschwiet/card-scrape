@@ -34,10 +34,12 @@ namespace cardscrape
 
 		public enum RecognizedTenses {
 			present,
-			preterite
+			preterite,
+			imperfect
 		}
 
 		public bool ShouldValidateOnly = false;
+		public string PhraseIntroducingVerb = null;
 
 		public GetVerbCommand ()
 		{
@@ -47,6 +49,9 @@ namespace cardscrape
 			this.HasOption<RecognizedTenses> ("tense=", 
 				"Include tense: " + String.Join (", ", Enum.GetNames (typeof(RecognizedTenses))), 
 				v => TensesToInclude.Add(v));
+			this.HasOption<string> ("preverb=", 
+				"Phrase injected before the verb (for example, use 'no' to change 'yo puedo' to 'yo no puedo')", 
+				v => PhraseIntroducingVerb = v);
 			this.SkipsCommandSummaryBeforeRunning ();
 		}
 
@@ -231,7 +236,13 @@ namespace cardscrape
 
 				foreach (var result in results.Where(r => r.TermDefinition == null)) {
 
-					result.TermDefinition = TranslateUtils.TranslateSpanishToEnglish (driver, result.DeambiguatingNounphrase + " " + result.Term);
+					var fullTerm = result.DeambiguatingNounphrase + " " + result.Term;
+
+					if (PhraseIntroducingVerb != null) {
+						fullTerm = result.DeambiguatingNounphrase + " " + PhraseIntroducingVerb + " " + result.Term;
+					}
+
+					result.TermDefinition = TranslateUtils.TranslateSpanishToEnglish (driver, fullTerm);
 
 					if (inputVerb.ExtraInfo != null) {
 						result.TermDefinition = result.TermDefinition + " " + inputVerb.ExtraInfo;
