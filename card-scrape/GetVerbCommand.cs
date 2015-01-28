@@ -236,11 +236,11 @@ namespace cardscrape
 
 				foreach (var result in results.Where(r => r.TermDefinition == null)) {
 
-					var fullTerm = result.DeambiguatingNounphrase + " " + result.Term;
-
 					if (PhraseIntroducingVerb != null) {
-						fullTerm = result.DeambiguatingNounphrase + " " + PhraseIntroducingVerb + " " + result.Term;
+						result.Term = "no " + result.Term;
 					}
+
+					var fullTerm = result.DeambiguatingNounphrase + " " + result.Term;
 
 					result.TermDefinition = TranslateUtils.TranslateSpanishToEnglish (driver, fullTerm);
 
