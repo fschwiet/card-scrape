@@ -81,6 +81,9 @@ namespace cardscrape
 				}
 			}
 
+			if (!Verbs.Any ())
+				throw new ConsoleHelpAsException ("No verbs specified.");
+
 			var options = new ChromeOptions();
 			var service = ChromeDriverService.CreateDefaultService();
 			service.SuppressInitialDiagnosticInformation = true;
