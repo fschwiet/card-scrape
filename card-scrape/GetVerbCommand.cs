@@ -65,20 +65,24 @@ namespace cardscrape
 
 		public override int Run (string[] remainingArguments)
 		{
+			var verbArguments = new List<string> ();
+
 			foreach (var arg in remainingArguments) {
 				if (File.Exists (arg)) {
 					foreach (var line in File.ReadAllLines (arg).Where (l => l.Trim ().Length > 0)) {
-						var pieces = line.Split (new [] { ';' }, 2);
-						Verbs.Add (new InputVerb() {
-							Verb = pieces[0].Trim(),
-							ExtraInfo = pieces.Length > 1 ? pieces[1].Trim() : null
-						});
+						verbArguments.Add (line);
 					}
 				} else {
-					Verbs.Add (new InputVerb() {
-						Verb = arg
-					});
+					verbArguments.Add (arg);
 				}
+			}
+
+			foreach (var verbArgument in verbArguments) {
+				var pieces = verbArgument.Split (new [] { ';' }, 2);
+				Verbs.Add (new InputVerb() {
+					Verb = pieces[0].Trim(),
+					ExtraInfo = pieces.Length > 1 ? pieces[1].Trim() : null
+				});
 			}
 
 			if (!Verbs.Any ())
