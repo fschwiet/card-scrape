@@ -240,7 +240,7 @@ namespace cardscrape
 				foreach (var result in results.Where(r => r.TermDefinition == null)) {
 
 					if (PhraseIntroducingVerb != null) {
-						result.Term = "no " + result.Term;
+						result.Term = PhraseIntroducingVerb + " " + result.Term;
 					}
 
 					var fullTerm = result.DeambiguatingNounphrase + " " + result.Term;
