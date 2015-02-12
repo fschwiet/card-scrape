@@ -11,6 +11,7 @@ enfocar
 emocionar
 empapar
 experimentar
+fallar
 identificar
 intuir
 jurar
