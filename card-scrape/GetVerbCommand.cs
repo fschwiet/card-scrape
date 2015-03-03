@@ -35,7 +35,8 @@ namespace cardscrape
 		public enum RecognizedTenses {
 			present,
 			preterite,
-			imperfect
+			imperfect,
+			future
 		}
 
 		public bool ShouldValidateOnly = false;
