@@ -33,6 +33,7 @@ namespace cardscrape
 		public List<RecognizedTenses> TensesToInclude = new List<RecognizedTenses>();
 
 		public enum RecognizedTenses {
+			infinitive,
 			present,
 			preterite,
 			imperfect,
@@ -58,8 +59,10 @@ namespace cardscrape
 
 		public override int? OverrideAfterHandlingArgumentsBeforeRun (string[] remainingArguments)
 		{
-			if (!TensesToInclude.Any ())
+			if (!TensesToInclude.Any ()) {
+				TensesToInclude.Add(RecognizedTenses.infinitive);
 				TensesToInclude.Add(RecognizedTenses.present);
+			}
 
 			return base.OverrideAfterHandlingArgumentsBeforeRun (remainingArguments);
 		}
@@ -192,16 +195,18 @@ namespace cardscrape
 				var vtableType = vtableLabel.Text.Trim ().ToLower ().Replace (" ", "-");
 				driver.ExecuteScript ("arguments[0].classList.add('vtable-label-" + vtableType + "');", vtableLabel);
 			}
-
-			var infinitiveResult = new Result () {
-				Term = term,
-				TermDefinition = infinitiveTranslation,
-				ConjugationType = "conjugation:infinitive"
-			};
-
+				
 			List<Result> results = new List<Result> ();
 
-			results.Add (infinitiveResult);
+			if (TensesToInclude.Contains(RecognizedTenses.infinitive)) {
+				var infinitiveResult = new Result () {
+					Term = term,
+					TermDefinition = infinitiveTranslation,
+					ConjugationType = "conjugation:infinitive"
+				};
+						
+				results.Add (infinitiveResult);
+			}
 
 			var indicativeTable = driver.FindElementByCssSelector (".vtable-label-indicative + .vtable-wrapper");
 
