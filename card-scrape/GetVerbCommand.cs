@@ -9,39 +9,6 @@ using OpenQA.Selenium.Remote;
 
 namespace cardscrape
 {
-	public class InputVerb {
-
-		public string Verb;
-		public string ExtraInfo;
-
-		public static List<InputVerb> ParseVerbOptions(string[] commandLineArguments) {
-
-			var verbArguments = new List<string> ();
-
-			foreach (var arg in commandLineArguments) {
-				if (File.Exists (arg)) {
-					foreach (var line in File.ReadAllLines (arg).Where (l => l.Trim ().Length > 0)) {
-						verbArguments.Add (line);
-					}
-				} else {
-					verbArguments.Add (arg);
-				}
-			}
-
-			var results = new List<InputVerb> ();
-
-			foreach (var verbArgument in verbArguments) {
-				var pieces = verbArgument.Split (new [] { ';' }, 2);
-				results.Add (new InputVerb() {
-					Verb = pieces[0].Trim(),
-					ExtraInfo = pieces.Length > 1 ? pieces[1].Trim() : null
-				});
-			}
-
-			return results;
-		}
-	}
-
 	public class GetVerbCommand : ConsoleCommand
 	{
 		public class Result {
@@ -67,6 +34,7 @@ namespace cardscrape
 			future
 		}
 
+		public List<InputVerb> Verbs = new List<InputVerb>();
 		public bool ShouldValidateOnly = false;
 		public string PhraseIntroducingVerb = null;
 
@@ -91,16 +59,16 @@ namespace cardscrape
 				TensesToInclude.Add(RecognizedTenses.present);
 			}
 
+			Verbs = InputVerb.ParseVerbOptions (remainingArguments);
+
+			if (!Verbs.Any ())
+				throw new ConsoleHelpAsException ("No verbs specified.");
+
 			return base.OverrideAfterHandlingArgumentsBeforeRun (remainingArguments);
 		}
 
 		public override int Run (string[] remainingArguments)
 		{
-			var Verbs = InputVerb.ParseVerbOptions (remainingArguments);
-
-			if (!Verbs.Any ())
-				throw new ConsoleHelpAsException ("No verbs specified.");
-
 			var options = new ChromeOptions();
 			var service = ChromeDriverService.CreateDefaultService();
 			service.SuppressInitialDiagnosticInformation = true;
