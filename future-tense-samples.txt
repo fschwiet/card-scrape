@@ -2,8 +2,8 @@ decir
 hacer
 rehacer
 deshacer
-estar
-ser
+estar; (temporarily)
+ser; (permanently)
 comer
 llegar
 poner

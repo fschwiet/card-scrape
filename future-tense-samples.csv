@@ -9,7 +9,7 @@ hará,he will do,"hacer - to do, to make",conjugation:indicative-future infiniti
 haremos,we will do,"hacer - to do, to make",conjugation:indicative-future infinitive:hacer
 harán,they will do,"hacer - to do, to make",conjugation:indicative-future infinitive:hacer
 reharé,I will redo,"rehacer - to redo, to do again",conjugation:indicative-future infinitive:rehacer
-reharás,you reharás,"rehacer - to redo, to do again",conjugation:indicative-future infinitive:rehacer
+reharás,you will redo,"rehacer - to redo, to do again",conjugation:indicative-future infinitive:rehacer
 rehará,he will remake,"rehacer - to redo, to do again",conjugation:indicative-future infinitive:rehacer
 reharemos,we will redo,"rehacer - to redo, to do again",conjugation:indicative-future infinitive:rehacer
 reharán,they will redo,"rehacer - to redo, to do again",conjugation:indicative-future infinitive:rehacer
@@ -18,16 +18,16 @@ desharás,you will undo,deshacer - to undo; to melt; to destroy,conjugation:indi
 deshará,he will undo,deshacer - to undo; to melt; to destroy,conjugation:indicative-future infinitive:deshacer
 desharemos,we will undo,deshacer - to undo; to melt; to destroy,conjugation:indicative-future infinitive:deshacer
 desharán,they will undo,deshacer - to undo; to melt; to destroy,conjugation:indicative-future infinitive:deshacer
-estaré,I will be,estar - to be,conjugation:indicative-future infinitive:estar
-estarás,you will be,estar - to be,conjugation:indicative-future infinitive:estar
-estará,he will be,estar - to be,conjugation:indicative-future infinitive:estar
-estaremos,we will be,estar - to be,conjugation:indicative-future infinitive:estar
-estarán,they will be,estar - to be,conjugation:indicative-future infinitive:estar
-seré,I will be,ser - to be,conjugation:indicative-future infinitive:ser
-serás,you will be,ser - to be,conjugation:indicative-future infinitive:ser
-será,he will be,ser - to be,conjugation:indicative-future infinitive:ser
-seremos,we will be,ser - to be,conjugation:indicative-future infinitive:ser
-serán,they will be,ser - to be,conjugation:indicative-future infinitive:ser
+estaré,I will be (temporarily),estar - to be (temporarily),conjugation:indicative-future infinitive:estar
+estarás,you will be (temporarily),estar - to be (temporarily),conjugation:indicative-future infinitive:estar
+estará,he will be (temporarily),estar - to be (temporarily),conjugation:indicative-future infinitive:estar
+estaremos,we will be (temporarily),estar - to be (temporarily),conjugation:indicative-future infinitive:estar
+estarán,they will be (temporarily),estar - to be (temporarily),conjugation:indicative-future infinitive:estar
+seré,I will be (permanently),ser - to be (permanently),conjugation:indicative-future infinitive:ser
+serás,you will be (permanently),ser - to be (permanently),conjugation:indicative-future infinitive:ser
+será,he will be (permanently),ser - to be (permanently),conjugation:indicative-future infinitive:ser
+seremos,we will be (permanently),ser - to be (permanently),conjugation:indicative-future infinitive:ser
+serán,they will be (permanently),ser - to be (permanently),conjugation:indicative-future infinitive:ser
 comeré,I will eat,comer - to eat,conjugation:indicative-future infinitive:comer
 comerás,you will eat,comer - to eat,conjugation:indicative-future infinitive:comer
 comerá,he will eat,comer - to eat,conjugation:indicative-future infinitive:comer
@@ -46,12 +46,12 @@ pondrán,they will,poner - to put,conjugation:indicative-future infinitive:poner
 repondré,I will restore,reponer - to replace,conjugation:indicative-future infinitive:reponer
 repondrás,you will restore,reponer - to replace,conjugation:indicative-future infinitive:reponer
 repondrá,he will restore,reponer - to replace,conjugation:indicative-future infinitive:reponer
-repondremos,we will replace,reponer - to replace,conjugation:indicative-future infinitive:reponer
+repondremos,we will restore,reponer - to replace,conjugation:indicative-future infinitive:reponer
 repondrán,they will restore,reponer - to replace,conjugation:indicative-future infinitive:reponer
 saldré,I will go out,"salir - to go out, to leave",conjugation:indicative-future infinitive:salir
 saldrás,you will go out,"salir - to go out, to leave",conjugation:indicative-future infinitive:salir
 saldrá,he will go out,"salir - to go out, to leave",conjugation:indicative-future infinitive:salir
-saldremos,we will go out,"salir - to go out, to leave",conjugation:indicative-future infinitive:salir
+saldremos,we will leave,"salir - to go out, to leave",conjugation:indicative-future infinitive:salir
 saldrán,they will go out,"salir - to go out, to leave",conjugation:indicative-future infinitive:salir
 tendré,I will have,"tener - to have, to be",conjugation:indicative-future infinitive:tener
 tendrás,you will have,"tener - to have, to be",conjugation:indicative-future infinitive:tener
@@ -62,7 +62,7 @@ valdré,I will cost,valer - to cost; to be worth,conjugation:indicative-future i
 valdrás,you will cost,valer - to cost; to be worth,conjugation:indicative-future infinitive:valer
 valdrá,he will cost,valer - to cost; to be worth,conjugation:indicative-future infinitive:valer
 valdremos,we will cost,valer - to cost; to be worth,conjugation:indicative-future infinitive:valer
-valdrán,they will cost,valer - to cost; to be worth,conjugation:indicative-future infinitive:valer
+valdrán,they will be worth,valer - to cost; to be worth,conjugation:indicative-future infinitive:valer
 vendré,I will come,"venir - to come, to arrive",conjugation:indicative-future infinitive:venir
 vendrás,you will come,"venir - to come, to arrive",conjugation:indicative-future infinitive:venir
 vendrá,he will come,"venir - to come, to arrive",conjugation:indicative-future infinitive:venir
@@ -72,7 +72,7 @@ podré,I will be able,poder - to be able to,conjugation:indicative-future infini
 podrás,you will be able,poder - to be able to,conjugation:indicative-future infinitive:poder
 podrá,he will be able,poder - to be able to,conjugation:indicative-future infinitive:poder
 podremos,we will be able,poder - to be able to,conjugation:indicative-future infinitive:poder
-podrán,they may,poder - to be able to,conjugation:indicative-future infinitive:poder
+podrán,they will be able,poder - to be able to,conjugation:indicative-future infinitive:poder
 cabré,I cabré,caber - to fit,conjugation:indicative-future infinitive:caber
 cabrás,you will fit,caber - to fit,conjugation:indicative-future infinitive:caber
 cabrá,he will fit,caber - to fit,conjugation:indicative-future infinitive:caber
