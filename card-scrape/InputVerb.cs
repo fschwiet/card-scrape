@@ -14,7 +14,12 @@ namespace cardscrape
 		public string Verb;
 		public string ExtraInfo;
 
-		public static List<InputVerb> ParseVerbOptions(string[] commandLineArguments) {
+		public override string ToString ()
+		{
+			return Verb;
+		}
+
+		public static List<InputVerb> ParseVerbOptions(IEnumerable<string> commandLineArguments) {
 
 			var verbArguments = new List<string> ();
 

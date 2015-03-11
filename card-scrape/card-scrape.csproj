@@ -54,6 +54,7 @@
     <Compile Include="GetVerbCommand.cs" />
     <Compile Include="TranslateUtils.cs" />
     <Compile Include="InputVerb.cs" />
+    <Compile Include="ScrapeSpanishDictCommand.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
