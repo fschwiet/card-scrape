@@ -47,9 +47,10 @@ namespace cardscrape
 			var service = ChromeDriverService.CreateDefaultService();
 			service.SuppressInitialDiagnosticInformation = true;
 
-			var driver = new ChromeDriver (service, options);
-
+			using (var driver = new ChromeDriver (service, options))
 			foreach (var inputVerb in Verbs) {
+
+				driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(5));
 
 				driver.Navigate ().GoToUrl ("http://spanishdict.com/translate/" + inputVerb.Verb);
 
@@ -59,6 +60,11 @@ namespace cardscrape
 				var conjugationLink = driver.FindElementsByLinkText ("Conjugation").FirstOrDefault ();
 
 				if (conjugationLink != null) {
+					driver.Navigate ().GoToUrl ("http://spanishdict.com/conjugate/" + inputVerb.Verb);
+
+					//  use FindElement to force a wait for the page to load
+					driver.FindElementByCssSelector (".vtable-label");
+
 					var conjugationFileTarget = Path.Combine (TargetDirectory, inputVerb.Verb + ".conjugation.txt");
 					File.WriteAllText (conjugationFileTarget, driver.PageSource);
 				}
